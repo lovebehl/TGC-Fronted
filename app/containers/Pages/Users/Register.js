@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
@@ -7,15 +7,6 @@ import { RegisterForm } from 'dan-components';
 import styles from 'dan-components/Forms/user-jss';
 
 function Register(props) {
-  const [valueForm, setValueForm] = useState(null);
-
-  const submitForm = values => {
-    setTimeout(() => {
-      setValueForm(values);
-      console.log(`You submitted:\n\n${valueForm}`);
-      window.location.href = '/app';
-    }, 500); // simulate server latency
-  };
 
   const title = brand.name + ' - Register';
   const description = brand.desc;
@@ -32,7 +23,7 @@ function Register(props) {
       </Helmet>
       <div className={classes.container}>
         <div className={classes.userFormWrap}>
-          <RegisterForm onSubmit={(values) => submitForm(values)} />
+          <RegisterForm/>
         </div>
       </div>
     </div>
