@@ -53,7 +53,7 @@ function GoldCard(props) {
   return (
     <div className={classes.testimonials}>
       <div className={!slideMode ? classes.container : classes.fullSliderContent}>
-        <Title title="What people said" align="center" monocolor={slideMode && true} />
+        <Title title="Texas Gold Card in Action!" desc='Member’s experiences' align="center" monocolor={slideMode && true} />
         <div className={classes.sliderWrap}>
           <Slider {...settings} className="slider-wrapper">
           {content.map((item, index) => (
