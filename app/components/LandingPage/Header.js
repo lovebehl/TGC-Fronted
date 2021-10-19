@@ -8,7 +8,7 @@ import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import MenuIcon from '@material-ui/icons/Menu';
-import { NavLink } from 'react-router-dom';
+import { NavLink,Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
 import AppBar from '@material-ui/core/AppBar';
@@ -40,7 +40,7 @@ function Header(props) {
     createData('Advantages', '#advantages'),
     createData('Contact', '#contact'),
     createData('Apply', '#apply'),
-    createData('Log In', '#login'),
+    createData('Log In', '/login'),
   ];
 
   const toggleDrawerOpen = () => {
@@ -92,7 +92,7 @@ function Header(props) {
                 <Scrollspy items={['home', 'advantages', 'contact', 'apply', 'login']} currentClassName="active">
                   {menuList.map(item => (
                     <li key={item.id.toString()}>
-                      <Button component={AnchorLink} href={item.url}>{item.name}</Button>
+                      <Button component={Link} to={item.url}>{item.name}</Button>
                     </li>
                   ))}
                 </Scrollspy>

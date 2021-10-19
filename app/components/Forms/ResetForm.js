@@ -11,7 +11,7 @@ import ArrowForward from '@material-ui/icons/ArrowForward';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import brand from 'dan-api/dummy/brand';
-import logo from 'dan-images/logo.svg';
+import logo from 'dan-images/logo.png';
 import { TextFieldRedux } from './ReduxFormMUI';
 import styles from './user-jss';
 
