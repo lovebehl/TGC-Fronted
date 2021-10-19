@@ -40,6 +40,34 @@ function Banner(props) {
     >
       {!slideMode && <BannerParallax />}
       <Slider {...settings}>
+        
+        <>
+          <div className={!slideMode ? classes.container : ''}>
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center'
+              }}
+              className='MuiGrid-container'
+            >
+              <Box align='left' className='MuiGrid-grid-xs-8'>
+                <Box mb={2}>
+                  <Typography m={2} variant='h3' className={classes.colorWhite}>A gold-backed</Typography>
+                </Box>
+                <Box mb={2}>
+                  <Typography mb={2}>money solution</Typography>
+                  <Box mb={2}>
+                  </Box>
+                  <Typography mb={2}>For Member to Member Transactions</Typography>
+                </Box>
+              </Box>
+
+              <Box sx={{ justifyContent: 'flex-end' }} className='MuiGrid-grid-xs-4 ' >
+                <img src='https://dummyimage.com/300x300/d8c28bba/fff' alt='#' />
+              </Box>
+            </Box>
+          </div>
+        </>
         <>
           <div className={!slideMode ? classes.container : ''}>
             <Box
