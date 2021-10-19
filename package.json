@@ -38,8 +38,7 @@
     "lint:js": "npm run lint:eslint -- . ",
     "lint:staged": "lint-staged",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "prettify": "prettier --write",
-    "build": "npm run build"
+    "prettify": "prettier --write"
   },
   "browserslist": [
     "last 1 version",
