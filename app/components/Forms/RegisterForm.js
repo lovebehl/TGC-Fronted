@@ -17,6 +17,10 @@ import brand from 'dan-api/dummy/brand';
 import logo from 'dan-images/logo.png';
 import { TextFieldRedux, CheckboxRedux } from './ReduxFormMUI';
 import styles from './user-jss';
+import { Grid } from '@material-ui/core'
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import './custom.css'
 
 // validation functions
 const required = value => (value === null ? 'Required' : undefined);
@@ -43,7 +47,12 @@ const LinkBtn = React.forwardRef(function LinkBtn(props, ref) { // eslint-disabl
 });
 
 function RegisterForm(props) {
-  const { classes,handleSubmit,pristine,submitting,deco} = props;
+  const [tab, setTab] = useState(0);
+
+  const handleChangeTab = (event, value) => {
+    setTab(value);
+  };
+  const { classes, handleSubmit, pristine, submitting, deco } = props;
 
   return (
     <Fragment>
@@ -69,66 +78,267 @@ function RegisterForm(props) {
         <Typography variant="h4" className={classes.title} gutterBottom>
           Register
         </Typography>
-        <section className={classes.formWrap}>
-          <form onSubmit={handleSubmit}>
-              <FormControl className={classes.formControl}>
-                <Field 
-                  name="name" 
-                  component={TextFieldRedux} 
-                  placeholder="Username"
-                  label="Username" 
-                  required 
-                  className={classes.field}
-                />
-              </FormControl>
-              <FormControl className={classes.formControl}>
-                <Field name="email" 
-                  component={TextFieldRedux} 
-                  placeholder="Your Email" 
-                  label="Your Email" 
-                  required validate={[required, email]} 
-                  className={classes.field}/>
-              </FormControl>
-              <FormControl className={classes.formControl}>
-                <Field name="phone" 
-                  component={TextFieldRedux} 
-                  placeholder="Your Phone" 
-                  label="Your Phone" 
-                  required validate={[required, phone]} 
-                  className={classes.field}/>
-              </FormControl>
-              <FormControl className={classes.formControl}>
-                <Field name="password" 
-                  component={TextFieldRedux} 
-                  type="password" 
-                  label="Your Password" 
-                  required validate={[required, passwordsMatch]} 
-                  className={classes.field}/>
-              </FormControl>
+        <Tabs
+          value={tab}
+          onChange={handleChangeTab}
+          indicatorColor="secondary"
+          textColor="secondary"
+          centered
+          className={classes.tab}
+        >
+          <Tab label="Individual" />
+          <Tab label="Corporate" />
+        </Tabs>
+
+        {tab === 0 && (
+          <section className={classes.formWrap}>
+            <form onSubmit={handleSubmit} className='custom-form-design'>
+              <Grid container spacing={2}>
+                <Grid item xs={6} className='custom-space'>
+                  <FormControl className={classes.formControl}>
+                    <Field
+                      name="fname"
+                      component={TextFieldRedux}
+                      placeholder="First Name"
+                      label="First Name"
+                      required
+                      className={classes.field}
+                    />
+                  </FormControl>
+                </Grid>
+                <Grid item xs={6} className='custom-space'>
+                  <FormControl className={classes.formControl}>
+                    <Field
+                      name="lname"
+                      component={TextFieldRedux}
+                      placeholder="Last Name"
+                      label="Last Name"
+                      required
+                      className={classes.field}
+                    />
+                  </FormControl>
+                </Grid>
+                <Grid item xs={6} className='custom-space'>
+                  <FormControl className={classes.formControl}>
+                    <Field
+                      type='text'
+                      name="address"
+                      component={TextFieldRedux}
+                      placeholder="Address Street"
+                      label="Address Street"
+                      required
+                      className={classes.field}
+                    />
+                  </FormControl>
+                </Grid>
+                <Grid item xs={6} className='custom-space'>
+                  <FormControl className={classes.formControl}>
+                    <Field
+                      name="city"
+                      component={TextFieldRedux}
+                      placeholder="City"
+                      label="City"
+                      required
+                      className={classes.field}
+                    />
+                  </FormControl>
+                </Grid>
+                <Grid item xs={6} className='custom-space'>
+                  <FormControl className={classes.formControl}>
+                    <Field
+                      name="state"
+                      component={TextFieldRedux}
+                      placeholder="State"
+                      label="State  "
+                      required
+                      className={classes.field}
+                    />
+                  </FormControl>
+                </Grid>
+                <Grid item xs={6} className='custom-space'>
+                  <FormControl className={classes.formControl}>
+                    <Field
+                      name="Zip"
+                      component={TextFieldRedux}
+                      placeholder="Zip"
+                      label="Zip  "
+                      required
+                      className={classes.field}
+                    />
+                  </FormControl>
+                </Grid>
+                <Grid item xs={6} className='custom-space'>
+                  <FormControl className={classes.formControl}>
+                    <Field
+                      name="birth"
+                      type='date'
+                      component={TextFieldRedux}
+                      placeholder="Birth Date"
+                      label=""
+                      required
+                      className={classes.field} />
+                  </FormControl>
+                </Grid>
+                <Grid item xs={6} className='custom-space'>
+                  <FormControl className={classes.formControl}>
+                    <Field
+                      name="email"
+                      type='Email'
+                      component={TextFieldRedux}
+                      placeholder="Email"
+                      label="Email"
+                      required
+                      validate={[required, email]}
+                      className={classes.field} />
+                  </FormControl>
+                </Grid>
+                <Grid item xs={6} className='custom-space'>
+                  <FormControl className={classes.formControl}>
+                    <Field
+                      type='text'
+                      name="Referredby"
+                      component={TextFieldRedux}
+                      placeholder="Referred by"
+                      label="Referred by"
+                      required
+                      className={classes.field} />
+                  </FormControl>
+                </Grid>
+                <Grid item xs={6} className='custom-space'>
+                  <FormControl className={classes.formControl}>
+                    <Field
+                      type='text'
+                      name="PhoneNumber"
+                      component={TextFieldRedux}
+                      placeholder="Phone Number"
+                      label="Phone Number"
+                      required
+                      className={classes.field} />
+                  </FormControl>
+                </Grid>
+                <Grid item xs={6} className='custom-space'>
+                  <FormControl className={classes.formControl}>
+                    <Field
+                      type='text'
+                      name="Numberofcards"
+                      component={TextFieldRedux}
+                      placeholder="Number of cards"
+                      label="Number of cards"
+                      required
+                      className={classes.field} />
+                  </FormControl>
+                </Grid>
+                <Grid item xs={6} className='custom-space'>
+                  <FormControl className={classes.formControl}>
+                    <Field
+                      type='text'
+                      name="Groupaffiliations"
+                      component={TextFieldRedux}
+                      placeholder="Group affiliations"
+                      label="Group affiliations"
+                      required
+                      className={classes.field} />
+                  </FormControl>
+                </Grid>
+              </Grid>
+
               {/* <FormControl className={classes.formControl}>
-                <Field name="passwordConfirm" component={TextFieldRedux} type="password" label="Re-type Password" required validate={[required, passwordsMatch]} className={classes.field}/>
-              </FormControl> */}
-            <div>
-              <FormControlLabel
-                control={(
-                  <Field 
-                    name="checkbox" 
-                    component={CheckboxRedux} 
-                    required 
-                    className={classes.agree} 
-                  />
-                )}
-                label="Agree with"
-              />
-              <a href="#" className={classes.link}>Terms &amp; Condition</a>
-            </div>
-            <div className={classes.btnArea}>
-              <Button variant="contained" color="primary" type="submit">
-                Continue<ArrowForward className={classNames(classes.rightIcon, classes.iconSmall)} disabled={submitting || pristine} />
-              </Button>
-            </div>
-          </form>
-        </section>
+                  <Field name="passwordConfirm" component={TextFieldRedux} type="password" label="Re-type Password" required validate={[required, passwordsMatch]} className={classes.field}/>
+                </FormControl> */}
+              <div>
+                <FormControlLabel
+                style={{marginRight:'5px'}}
+                  control={(
+                    <Field
+                      name="checkbox"
+                      component={CheckboxRedux}
+                      required
+                      className={classes.agree}
+                      
+                    />
+                  )}
+                  label="I agree with"
+                />
+                <a href="#" className={classes.link}>Terms &amp; Condition</a>
+              </div>
+              <div className={classes.btnArea}>
+                <Button variant="contained" color="primary" type="submit">
+                  Continue<ArrowForward className={classNames(classes.rightIcon, classes.iconSmall)} disabled={submitting || pristine} />
+                </Button>
+              </div>
+            </form>
+          </section>
+        )}
+        {tab === 1 && (
+          <section className={classes.formWrap}>
+            <form onSubmit={handleSubmit} className='custom-form-design'>
+              <Grid container spacing={2}>
+                <Grid item xs={6} className='custom-space'>
+                  <FormControl className={classes.formControl}>
+                    <Field
+                      name="TypeofBusiness"
+                      component={TextFieldRedux}
+                      placeholder="Type of Business"
+                      label="Type of Business"
+                      required
+                      className={classes.field}
+                    />
+                  </FormControl>
+                </Grid>
+                <Grid item xs={6} className='custom-space'>
+                  <FormControl className={classes.formControl}>
+                    <Field
+                      name="Numberofemployees"
+                      component={TextFieldRedux}
+                      placeholder="Number of employees"
+                      label="Number of employees"
+                      required
+                      className={classes.field}
+                    />
+                  </FormControl>
+                </Grid>
+                <Grid item xs={12} className='custom-space'>
+                  <FormControl className={classes.formControl}>
+                    <Field
+                      type='text'
+                      name="address"
+                      component={TextFieldRedux}
+                      placeholder="Number of locations"
+                      label="Number of locations"
+                      required
+                      className={classes.field}
+                    />
+                  </FormControl>
+                </Grid>
+              </Grid>
+
+              {/* <FormControl className={classes.formControl}>
+                  <Field name="passwordConfirm" component={TextFieldRedux} type="password" label="Re-type Password" required validate={[required, passwordsMatch]} className={classes.field}/>
+                </FormControl> */}
+              <div>
+                <FormControlLabel
+                  style={{marginRight:'5px'}} 
+                  control={(
+                    <Field
+                      name="checkbox"
+                      component={CheckboxRedux}
+                      required
+                      className={classes.agree}
+                    />
+                  )}
+                  label="Agree with"
+                />
+                <a href="#" className={classes.link}>Terms &amp; Condition</a>
+              </div>
+              <div className={classes.btnArea}>
+                <Button variant="contained" color="primary" type="submit">
+                  Continue<ArrowForward className={classNames(classes.rightIcon, classes.iconSmall)} disabled={submitting || pristine} />
+                </Button>
+              </div>
+            </form>
+          </section>
+        )}
+        
       </Paper>
     </Fragment>
   );
