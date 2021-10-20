@@ -3,7 +3,7 @@ const lightPalette = {
     palette: {
       primary: {
         light: '#ECEFF1',
-        main: '#607D8B',
+        main: '#607D8B', //d8c28b title color use
         dark: '#455A64',
         contrastText: '#fff',
       },
@@ -15,6 +15,7 @@ const lightPalette = {
       },
     },
   },
+
   blueCyanTheme: {
     palette: {
       primary: {
