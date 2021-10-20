@@ -1,0 +1,18 @@
+.custom-form-design .MuiInputLabel-formControl{
+    top: 0;
+    transform: translate(0, 17px) scale(1);
+}
+.custom-form-design .MuiInput-formControl{
+    margin-top: 0;
+}
+.custom-form-design .MuiInputLabel-shrink {
+    z-index: 1;
+    transform: translate(0, 5px) scale(0.7);
+    transform-origin: top left;
+}
+form.custom-form-design .custom-space{
+    padding: 0 15px 10px 15px;
+}
+.custom-form-design .MuiInputLabel-animated{
+    padding-bottom: 0;
+}

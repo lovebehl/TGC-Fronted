@@ -183,17 +183,17 @@ const styles = theme => ({
       marginRight: 10,
     },
   },
-  BrandFooterAlign:{
-    textAlign:'center'
+  BrandFooterAlign: {
+    textAlign: 'center'
   },
-  BrandFooterContact:{
-    display:'inline-block',
-    verticalAlign:'middle',
-    marginTop:'40px',
-    textAlign:'left',
-    '& li':{
-      marginBottom:'15px',
-      color:'#fff'
+  BrandFooterContact: {
+    display: 'inline-block',
+    verticalAlign: 'middle',
+    marginTop: '40px',
+    textAlign: 'left',
+    '& li': {
+      marginBottom: '15px',
+      color: '#fff'
     }
   },
   gradient: {},
@@ -501,7 +501,7 @@ const styles = theme => ({
     [theme.breakpoints.down('sm')]: {
       marginTop: sectionSpaceMobile,
     },
-    marginBottom:sectionSpace,
+    marginBottom: sectionSpace,
 
   },
   tech: {
@@ -523,7 +523,7 @@ const styles = theme => ({
       width: 1140,
     },
     margin: '0 auto',
-    
+
     '& [class*="track"]': {
       [theme.breakpoints.up('sm')]: {
         width: 540,
@@ -740,12 +740,12 @@ const styles = theme => ({
   contactText: {
     marginTop: theme.spacing(3)
   },
-  borderColor:{
+  borderColor: {
     '&::placeholder': {
       color: '#fff'
     },
-    borderColor:'#9d9d9d',
-    color:'#fff'
+    borderColor: '#9d9d9d',
+    color: '#fff'
   },
   footer: {
     background: theme.palette.type === 'dark' ? gradientBgDark(theme) : gradientBgLight(theme),
@@ -757,7 +757,7 @@ const styles = theme => ({
     '& $brand': {
       color: theme.palette.text.primary
     },
-    
+
     '& $spaceContainer': {
       [theme.breakpoints.down('sm')]: {
         flexDirection: 'column',
@@ -774,18 +774,18 @@ const styles = theme => ({
       }
     }
   },
-  sitemap:{
-    marginTop:30,
-    textAlign:'left'
+  sitemap: {
+    marginTop: 30,
+    textAlign: 'left'
   },
-  sitemapLink :{
-    marginBottom:10,
+  sitemapLink: {
+    marginBottom: 10,
   },
-  sitemapLinkUi:{
-    color:'#fff',
-    textDecoration:'none'
+  sitemapLinkUi: {
+    color: '#fff',
+    textDecoration: 'none'
   },
-  grideThree:{
+  grideThree: {
     flex: '0 0 33.33%',
     maxWidth: '33.33%'
   },
