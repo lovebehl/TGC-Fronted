@@ -66,7 +66,7 @@ function Sidebar(props) {
           open={!open}
           anchor={leftSidebar ? 'left' : 'right'}
         >
-          <div className={classes.swipeDrawerPaper}>
+          <div asdasd className={classes.swipeDrawerPaper}>
             <SidebarContent
               drawerPaper
               leftSidebar={leftSidebar}

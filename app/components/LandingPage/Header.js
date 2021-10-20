@@ -39,7 +39,7 @@ function Header(props) {
     createData('Home', '#home'),
     createData('Advantages', '#advantages'),
     createData('Contact', '#contact'),
-    createData('Apply', '#apply'),
+    createData('Apply', ' #apply'),
     createData('Log In', '/login'),
   ];
 

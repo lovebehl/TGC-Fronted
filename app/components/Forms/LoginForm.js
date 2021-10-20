@@ -92,7 +92,7 @@ function LoginForm(props) {
               </FormControl>
             </div>
             <div>
-              <FormControl className={classes.formControl}>
+              <FormControl style={{marginRight:'5px'}} className={classes.formControl}>
                 <Field
                   name="password"
                   component={TextFieldRedux}
