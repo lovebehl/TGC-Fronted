@@ -7,6 +7,7 @@ import ShowcaseCard from '../CardPaper/ShowcaseCard';
 import ShowcaseParallax from './ShowcaseParallax';
 import Title from './Title';
 import styles from './landingStyle-jss';
+import Constants from '../../constants/contants';
 
 function Showcase(props) {
   const { classes, slideMode, width } = props;
@@ -17,7 +18,11 @@ function Showcase(props) {
       <div className={classes.container}>
         <Grid container className={classes.root} spacing={5}>
           <Grid item sm={6} md={4} xs={12}>
-            <Title title="Showcase" align={width === 'lg' ? 'left' : 'center'} monocolor={slideMode && true} />
+            <Title
+              title={Constants.escapeTheMatrix}
+              align={width === "lg" ? "left" : "center"}
+              monocolor={slideMode && true}
+            />
             <ShowcaseCard
               title="Nam sollicitudin"
               desc="Aenean facilisis vitae purus facilisis semper."
