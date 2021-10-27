@@ -1,14 +1,14 @@
 {
-  "name": "dandelion_pro",
+  "name": "TGC_Marketplace",
   "version": "2.1.1",
-  "description": "React website tempate with focus on perfomance and design",
+  "description": "TG Gold Backend solution for member to member transcation",
   "private": true,
   "engines": {
     "npm": ">=6.9.0",
     "node": ">=12.0.0"
   },
-  "author": "Dandelion Pro Team",
-  "license": "Envato Regular License",
+  "author": "Greg Smith",
+  "license": "Licence by TGC marketplace",
   "scripts": {
     "analyze:clean": "rimraf stats.json",
     "preanalyze": "npm run analyze:clean",
