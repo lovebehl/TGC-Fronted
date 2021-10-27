@@ -16,7 +16,7 @@ import logo from 'dan-images/logo.svg';
 import brand from 'dan-api/dummy/brand';
 import SideNavMobile from './SideNavMobile';
 import styles from './landingStyle-jss';
-import Constants from '../../constants/contants';
+import Constants from '../../constants/constants';
 
 
 let counter = 0;

@@ -10,7 +10,7 @@ import { withStyles } from '@material-ui/core/styles';
 import link from 'dan-api/ui/link';
 import styles from './landingStyle-jss';
 import BannerParallax from './BannerParallax';
-import Constants from '../../constants/contants';
+import Constants from '../../constants/constants';
 
 function Banner(props) {
   const { classes, slideMode } = props;

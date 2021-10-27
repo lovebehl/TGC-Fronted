@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Title from './Title';
 import styles from './landingStyle-jss';
-import Constants from '../../constants/contants';
+import Constants from '../../constants/constants';
 
 let counter = 0;
 function createFeatureData(icon, title, desc) {

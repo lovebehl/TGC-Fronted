@@ -12,7 +12,7 @@ import TestimonialsParallax from './TestimonialsParallax';
 import 'dan-styles/vendors/react-animated-slider/react-animated-slider.css';
 import Title from './Title';
 import styles from './landingStyle-jss';
-import Constants from '../../constants/contants';
+import Constants from '../../constants/constants';
 
 const content = [
   {

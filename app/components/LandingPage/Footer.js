@@ -6,7 +6,7 @@ import IconButton from '@material-ui/core/IconButton';
 import logo from 'dan-images/logo.svg';
 import brand from 'dan-api/dummy/brand';
 import link from 'dan-api/ui/link';
-import Constants from '../../constants/contants';
+import Constants from '../../constants/constants';
 
 import styles from './landingStyle-jss';
 

@@ -7,7 +7,7 @@ import ShowcaseCard from '../CardPaper/ShowcaseCard';
 import ShowcaseParallax from './ShowcaseParallax';
 import Title from './Title';
 import styles from './landingStyle-jss';
-import Constants from '../../constants/contants';
+import Constants from '../../constants/constants';
 
 function Showcase(props) {
   const { classes, slideMode, width } = props;
