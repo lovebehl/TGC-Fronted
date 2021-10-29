@@ -12,8 +12,8 @@ import { NavLink } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
 import AppBar from '@material-ui/core/AppBar';
-import logo from 'dan-images/logo.svg';
-import brand from 'dan-api/dummy/brand';
+import logo from 'dan-images/logo.png';
+// import brand from 'dan-api/dummy/brand';
 import SideNavMobile from './SideNavMobile';
 import styles from './landingStyle-jss';
 import Constants from '../../constants/constants';
@@ -37,12 +37,12 @@ function Header(props) {
   const gradient = useSelector(state => state.getIn([reducer, 'gradient']));
 
   const menuList = [
-    createData("Home", "#feature"),
-    createData("Advantages", "#showcase"),
+    createData('Home', '#feature'),
+    createData('Advantages', '#showcase'),
     // createData("Contact", "#testimonials"),
-    createData("Apply", "#tech"),
-    createData("Login", "#pricing"),
-    createData("Contact", "#contact"),
+    createData('Apply', '#tech'),
+    createData('Login', '#pricing'),
+    createData('Contact', '#contact'),
   ];
 
   const toggleDrawerOpen = () => {
@@ -94,12 +94,12 @@ function Header(props) {
               <nav>
                 <Scrollspy
                   items={[
-                    "feature",
-                    "showcase",
-                    "testimonials",
-                    "tech",
-                    "pricing",
-                    "contact",
+                    'feature',
+                    'showcase',
+                    'testimonials',
+                    'tech',
+                    'pricing',
+                    'contact',
                   ]}
                   currentClassName="active"
                 >

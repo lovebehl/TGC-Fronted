@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import logo from 'dan-images/logo.svg';
-import brand from 'dan-api/dummy/brand';
+import logo from 'dan-images/logo.png';
+// import brand from 'dan-api/dummy/brand';
 import link from 'dan-api/ui/link';
 import Constants from '../../constants/constants';
 
@@ -72,7 +72,12 @@ function Footer(props) {
       </div>
       <div className={classes.copyright}>
         <div className={classes.container}>
-          <p>&copy; {Constants.copyRightTGC} </p>
+          <p>
+&copy;
+            {Constants.copyRightTGC}
+            {' '}
+
+          </p>
           <span>
             <IconButton
               color="primary"

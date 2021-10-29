@@ -1,13 +1,13 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import Hidden from '@material-ui/core/Hidden';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import link from 'dan-api/ui/link';
+// import link from 'dan-api/ui/link';
 import styles from './landingStyle-jss';
 import BannerParallax from './BannerParallax';
 import Constants from '../../constants/constants';
@@ -26,12 +26,13 @@ function Banner(props) {
       )}
     >
       {!slideMode && <BannerParallax />}
-      <div className={!slideMode ? classes.container : ""}>
+      <div className={!slideMode ? classes.container : ''}>
         <Typography component="h2" variant="h2" gutterBottom>
           {Constants.goldBackend}
         </Typography>
         <Typography component="p" variant="h5" gutterBottom>
-          {Constants.forMemberTransactions}{" "}
+          {Constants.forMemberTransactions}
+          {' '}
         </Typography>
         <div className={classes.btnArea} />
         <div className={classes.previewApp}>
@@ -40,7 +41,7 @@ function Banner(props) {
               className={classNames(
                 classes.m2,
                 classes.screen,
-                slideMode ? classes.bottom : ""
+                slideMode ? classes.bottom : ''
               )}
             >
               <img src="/images/screen/crypto.jpg" alt="crm dashboard" />
@@ -54,7 +55,7 @@ function Banner(props) {
               className={classNames(
                 classes.m3,
                 classes.screen,
-                slideMode ? classes.bottom : ""
+                slideMode ? classes.bottom : ''
               )}
             >
               <img src="/images/screen/crm.jpg" alt="crypto dashboard" />
