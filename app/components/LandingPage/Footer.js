@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
-import logo from 'dan-images/logo.png';
 import brand from 'dan-api/dummy/brand';
 import link from 'dan-api/ui/link';
 import styles from './landingStyle-jss';
@@ -100,7 +99,7 @@ function Footer(props) {
           <div className={classes.grideThree}>
             <div className={classes.BrandFooterAlign}>
               <div className={classes.Footerbrand}>
-                <img src={logo} alt={brand.name} />
+                <img src={"./images/logo.png"} alt={brand.name} />
               </div>
               <ul className={classes.BrandFooterContact}>
                 <li><LocalPhoneIcon/> 713-554-GOLD</li>

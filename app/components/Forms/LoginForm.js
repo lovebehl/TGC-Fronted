@@ -18,7 +18,6 @@ import Paper from '@material-ui/core/Paper';
 import Icon from '@material-ui/core/Icon';
 import Hidden from '@material-ui/core/Hidden';
 import brand from 'dan-api/dummy/brand';
-import logo from 'dan-images/logo.png';
 import { TextFieldRedux, CheckboxRedux } from './ReduxFormMUI';
 import styles from './user-jss';
 
@@ -51,12 +50,13 @@ function LoginForm(props) {
     pristine,
     submitting,
     deco,
+    onSubmit
   } = props;
   return (
     <Fragment>
       <Hidden mdUp>
         <NavLink to="/" className={classNames(classes.brand, classes.outer)}>
-          <img src={logo} alt={brand.name} />
+          <img src={"./images/logo.png"} alt={brand.name} />
           {brand.name}
         </NavLink>
       </Hidden>
@@ -64,7 +64,7 @@ function LoginForm(props) {
         <Hidden smDown>
           <div className={classes.topBar}>
             <NavLink to="/" className={classes.brand}>
-              <img src={logo} alt={brand.name} />
+              <img src={"./images/logo.png"} alt={brand.name} />
               {brand.name}
             </NavLink>
             <Button size="small" className={classes.buttonLink} component={LinkBtn} to="/register">
@@ -77,7 +77,7 @@ function LoginForm(props) {
           Sign In
         </Typography>
         <section className={classes.formWrap}>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div>
               <FormControl className={classes.formControl}>
                 <Field
@@ -124,7 +124,6 @@ function LoginForm(props) {
             <div className={classes.btnArea}>
               <Button variant="contained" color="primary" size="large" type="submit">
                 Continue
-                <ArrowForward className={classNames(classes.rightIcon, classes.iconSmall)} disabled={submitting || pristine} />
               </Button>
             </div>
           </form>
@@ -143,7 +142,7 @@ LoginForm.propTypes = {
 };
 
 const LoginFormReduxed = reduxForm({
-  form: 'immutableExample',
+  form: 'loginform',
   enableReinitialize: true,
 })(LoginForm);
 

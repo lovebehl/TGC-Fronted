@@ -11,7 +11,6 @@ import ArrowForward from '@material-ui/icons/ArrowForward';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import brand from 'dan-api/dummy/brand';
-import logo from 'dan-images/logo.png';
 import { TextFieldRedux } from './ReduxFormMUI';
 import styles from './user-jss';
 
@@ -35,7 +34,7 @@ function ResetForm(props) {
     <Paper className={classNames(classes.paperWrap, deco && classes.petal)}>
       <div className={classes.topBar}>
         <NavLink to="/" className={classes.brand}>
-          <img src={logo} alt={brand.name} />
+          <img src={"./images/logo.png"} alt={brand.name} />
           {brand.name}
         </NavLink>
       </div>

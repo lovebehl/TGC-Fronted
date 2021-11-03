@@ -4,6 +4,8 @@ import Auth from './Auth';
 import Application from './Application';
 import ThemeWrapper from './ThemeWrapper';
 import Landing from './Landing';
+import PrivateRoute from './privateRoute';
+
 window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true;
 
 
@@ -12,7 +14,7 @@ function App() {
     <ThemeWrapper>
       <Switch>
         <Route path="/" exact component={Landing} />
-        <Route exact path="/app" component={Application} />
+        <PrivateRoute exact path="/app" component={Application} />
         <Route component={Auth} />
       </Switch>
     </ThemeWrapper>

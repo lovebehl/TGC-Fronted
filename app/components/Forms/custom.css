@@ -16,3 +16,10 @@ form.custom-form-design .custom-space{
 .custom-form-design .MuiInputLabel-animated{
     padding-bottom: 0;
 }
+.custom-form-design .MuiInput-input[type="date"]{
+    padding:15px 10px;
+}
+.leftGrid{
+    display: flex;
+    padding: 15px 0 15px 15px !important
+}
