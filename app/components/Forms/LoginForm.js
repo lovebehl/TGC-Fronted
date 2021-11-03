@@ -64,7 +64,7 @@ function LoginForm(props) {
         <Hidden smDown>
           <div className={classes.topBar}>
             <NavLink to="/" className={classes.brand}>
-              <img src={logo} alt={brand.name} />
+              <img src={"./images/logo.png"} alt={brand.name} />
               {brand.name}
             </NavLink>
             <Button size="small" className={classes.buttonLink} component={LinkBtn} to="/register">
