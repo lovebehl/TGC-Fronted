@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import brand from 'dan-api/dummy/brand';
-import Header from 'dan-components/LandingPage/header'
+import Header from 'dan-components/LandingPage/Header'
 import AdvTable from 'dan-components/Tables/AdvTable'
 import PapperBlock from 'dan-components/PapperBlock/PapperBlock';
 import './custom.css'
