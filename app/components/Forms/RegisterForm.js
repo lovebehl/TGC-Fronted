@@ -18,9 +18,8 @@ import logo from 'dan-images/logo.png';
 import { TextFieldRedux, CheckboxRedux } from './ReduxFormMUI';
 import styles from './user-jss';
 import { Grid } from '@material-ui/core'
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
 import './custom.css'
+import showLog from '../../utils/logger';
 
 // validation functions
 const required = value => (value === null ? 'Required' : undefined);
@@ -29,30 +28,30 @@ const email = value => (
     ? 'Invalid email'
     : undefined
 );
-const phone = value => (
-  value && !/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/i.test(value)
-    ? 'Invalid Phone Number'
-    : undefined
-);
-
-const passwordsMatch = (value, allValues) => {
-  if (value !== allValues.get('password')) {
-    return 'Passwords dont match';
-  }
-  return undefined;
-};
 
 const LinkBtn = React.forwardRef(function LinkBtn(props, ref) { // eslint-disable-line
   return <NavLink to={props.to} {...props} innerRef={ref} />; // eslint-disable-line
 });
 
 function RegisterForm(props) {
-  const [tab, setTab] = useState(0);
+  const [type, setType] = useState("I")
+  const { classes, handleSubmit, pristine, submitting, deco, onSubmit } = props;
 
-  const handleChangeTab = (event, value) => {
-    setTab(value);
-  };
-  const { classes, handleSubmit, pristine, submitting, deco } = props;
+  const changeCheck = async(t) =>{
+    try {
+      if(type === t){
+        return
+      }
+      else if(type === "I"){
+        setType("C")
+      }
+      else{
+        setType("I")
+      }
+    } catch (error) {
+     showLog("Change Individial Comapny Check Error", error) 
+    }
+  }
 
   return (
     <Fragment>
@@ -69,30 +68,46 @@ function RegisterForm(props) {
               <img src={logo} alt={brand.name} />
               {brand.name}
             </NavLink>
-            <Button size="small" className={classes.buttonLink} component={LinkBtn} to="/login">
-              <Icon className={classes.icon}>arrow_forward</Icon>
-              Already have account ?
-            </Button>
+            <Typography variant="h6" className={classes.title} gutterBottom>
+          Member Application
+        </Typography>
           </div>
         </Hidden>
-        <Typography variant="h4" className={classes.title} gutterBottom>
-          Register
-        </Typography>
-        <Tabs
-          value={tab}
-          onChange={handleChangeTab}
-          indicatorColor="secondary"
-          textColor="secondary"
-          centered
-          className={classes.tab}
-        >
-          <Tab label="Individual" />
-          <Tab label="Corporate" />
-        </Tabs>
-
-        {tab === 0 && (
+        
           <section className={classes.formWrap}>
-            <form onSubmit={handleSubmit} className='custom-form-design'>
+            <form onSubmit={handleSubmit(onSubmit)} className='custom-form-design'>
+            <Grid container spacing={2}>
+                <Grid item xs={12} className='leftGrid'>
+                <FormControlLabel
+                style={{marginRight:'15px'}}
+                  control={(
+                    <Field
+                      name="individual"
+                      component={CheckboxRedux}
+                      className={classes.agree}
+                      checked={type === "I"}
+                      onChange={()=>{changeCheck("I")}}
+                      value={type === "I"}
+                    />
+                  )}
+                  label="Individual"
+                />
+                  <FormControlLabel
+                style={{marginRight:'5px'}}
+                  control={(
+                    <Field
+                      name="company"
+                      component={CheckboxRedux}
+                      className={classes.agree}
+                      checked={type === "C"}
+                      onChange={()=>{changeCheck("C")}}
+                      value={type === "C"}
+                    />
+                  )}
+                  label="Company"
+                />
+                  </Grid>
+                  </Grid>
               <Grid container spacing={2}>
                 <Grid item xs={6} className='custom-space'>
                   <FormControl className={classes.formControl}>
@@ -121,17 +136,79 @@ function RegisterForm(props) {
                 <Grid item xs={6} className='custom-space'>
                   <FormControl className={classes.formControl}>
                     <Field
+                      name="email"
+                      type='Email'
+                      component={TextFieldRedux}
+                      placeholder="Email"
+                      label="Email"
+                      required
+                      validate={[required, email]}
+                      className={classes.field} />
+                  </FormControl>
+                </Grid>
+                <Grid item xs={6} className='custom-space'>
+                  <FormControl className={classes.formControl}>
+                    <Field
+                      name="password"
+                      type='Password'
+                      component={TextFieldRedux}
+                      placeholder="Password"
+                      label="Password"
+                      required
+                      className={classes.field} />
+                  </FormControl>
+                </Grid>
+                <Grid item xs={4} className='custom-space'>
+                  <FormControl className={classes.formControl}>
+                    <Field
+                      type='text'
+                      name="phoneNumber"
+                      component={TextFieldRedux}
+                      placeholder="Phone Number"
+                      label="Phone Number"
+                      required
+                      className={classes.field} />
+                  </FormControl>
+                </Grid>
+                <Grid item xs={4} className='custom-space'>
+                  <FormControl className={classes.formControl}>
+                    <Field
+                      name="birth"
+                      type='date'
+                      component={TextFieldRedux}
+                      placeholder="Birth Date"
+                      label=""
+                      required
+                      className={classes.field} 
+                      />
+                  </FormControl>
+                </Grid>
+                <Grid item xs={4} className='custom-space'>
+                  <FormControl className={classes.formControl}>
+                    <Field
+                      type='number'
+                      name="numberOfCards"
+                      component={TextFieldRedux}
+                      placeholder="Number of cards"
+                      label="Number of cards"
+                      required
+                      className={classes.field} />
+                  </FormControl>
+                </Grid>
+                <Grid item xs={12} className='custom-space'>
+                  <FormControl className={classes.formControl}>
+                    <Field
                       type='text'
                       name="address"
                       component={TextFieldRedux}
-                      placeholder="Address Street"
-                      label="Address Street"
+                      placeholder="Address"
+                      label="Street Address"
                       required
                       className={classes.field}
                     />
                   </FormControl>
                 </Grid>
-                <Grid item xs={6} className='custom-space'>
+                <Grid item xs={3} className='custom-space'>
                   <FormControl className={classes.formControl}>
                     <Field
                       name="city"
@@ -142,8 +219,8 @@ function RegisterForm(props) {
                       className={classes.field}
                     />
                   </FormControl>
-                </Grid>
-                <Grid item xs={6} className='custom-space'>
+                  </Grid>
+                  <Grid item xs={3} className='custom-space'>
                   <FormControl className={classes.formControl}>
                     <Field
                       name="state"
@@ -158,7 +235,7 @@ function RegisterForm(props) {
                 <Grid item xs={6} className='custom-space'>
                   <FormControl className={classes.formControl}>
                     <Field
-                      name="Zip"
+                      name="zip"
                       component={TextFieldRedux}
                       placeholder="Zip"
                       label="Zip  "
@@ -170,37 +247,11 @@ function RegisterForm(props) {
                 <Grid item xs={6} className='custom-space'>
                   <FormControl className={classes.formControl}>
                     <Field
-                      name="birth"
-                      type='date'
-                      component={TextFieldRedux}
-                      placeholder="Birth Date"
-                      label=""
-                      required
-                      className={classes.field} />
-                  </FormControl>
-                </Grid>
-                <Grid item xs={6} className='custom-space'>
-                  <FormControl className={classes.formControl}>
-                    <Field
-                      name="email"
-                      type='Email'
-                      component={TextFieldRedux}
-                      placeholder="Email"
-                      label="Email"
-                      required
-                      validate={[required, email]}
-                      className={classes.field} />
-                  </FormControl>
-                </Grid>
-                <Grid item xs={6} className='custom-space'>
-                  <FormControl className={classes.formControl}>
-                    <Field
                       type='text'
-                      name="Referredby"
+                      name="referredBy"
                       component={TextFieldRedux}
                       placeholder="Referred by"
                       label="Referred by"
-                      required
                       className={classes.field} />
                   </FormControl>
                 </Grid>
@@ -208,49 +259,61 @@ function RegisterForm(props) {
                   <FormControl className={classes.formControl}>
                     <Field
                       type='text'
-                      name="PhoneNumber"
-                      component={TextFieldRedux}
-                      placeholder="Phone Number"
-                      label="Phone Number"
-                      required
-                      className={classes.field} />
-                  </FormControl>
-                </Grid>
-                <Grid item xs={6} className='custom-space'>
-                  <FormControl className={classes.formControl}>
-                    <Field
-                      type='text'
-                      name="Numberofcards"
-                      component={TextFieldRedux}
-                      placeholder="Number of cards"
-                      label="Number of cards"
-                      required
-                      className={classes.field} />
-                  </FormControl>
-                </Grid>
-                <Grid item xs={6} className='custom-space'>
-                  <FormControl className={classes.formControl}>
-                    <Field
-                      type='text'
-                      name="Groupaffiliations"
+                      name="groupAffiliations"
                       component={TextFieldRedux}
                       placeholder="Group affiliations"
                       label="Group affiliations"
-                      required
                       className={classes.field} />
                   </FormControl>
                 </Grid>
               </Grid>
-
-              {/* <FormControl className={classes.formControl}>
-                  <Field name="passwordConfirm" component={TextFieldRedux} type="password" label="Re-type Password" required validate={[required, passwordsMatch]} className={classes.field}/>
-                </FormControl> */}
+              {type === "C" && <>
+              <Grid container spacing={2}>
+                <Grid item xs={4} className='custom-space'>
+                  <FormControl className={classes.formControl}>
+                    <Field
+                      name="typeOfBusiness"
+                      component={TextFieldRedux}
+                      placeholder="Type of Business"
+                      label="Type of Business"
+                      required
+                      className={classes.field}
+                    />
+                  </FormControl>
+                </Grid>
+                <Grid item xs={4} className='custom-space'>
+                  <FormControl className={classes.formControl}>
+                    <Field
+                      name="numberOfEmployees"
+                      component={TextFieldRedux}
+                      placeholder="Number of employees"
+                      label="Number of employees"
+                      required
+                      className={classes.field}
+                    />
+                  </FormControl>
+                </Grid>
+                <Grid item xs={4} className='custom-space'>
+                  <FormControl className={classes.formControl}>
+                    <Field
+                      type='text'
+                      name="locations"
+                      component={TextFieldRedux}
+                      placeholder="Number of locations"
+                      label="Number of locations"
+                      required
+                      className={classes.field}
+                    />
+                  </FormControl>
+                </Grid>
+              </Grid>
+              </>}
               <div>
                 <FormControlLabel
                 style={{marginRight:'5px'}}
                   control={(
                     <Field
-                      name="checkbox"
+                      name="tnc"
                       component={CheckboxRedux}
                       required
                       className={classes.agree}
@@ -263,82 +326,15 @@ function RegisterForm(props) {
               </div>
               <div className={classes.btnArea}>
                 <Button variant="contained" color="primary" type="submit">
-                  Continue<ArrowForward className={classNames(classes.rightIcon, classes.iconSmall)} disabled={submitting || pristine} />
+                  Submit Application
                 </Button>
+                <Button size="small" className={classes.buttonLink} component={LinkBtn} to="/login">
+              Already Have Account? Go to Login &nbsp;
+              <Icon className={classes.icon}>arrow_forward</Icon>
+            </Button>
               </div>
             </form>
           </section>
-        )}
-        {tab === 1 && (
-          <section className={classes.formWrap}>
-            <form onSubmit={handleSubmit} className='custom-form-design'>
-              <Grid container spacing={2}>
-                <Grid item xs={6} className='custom-space'>
-                  <FormControl className={classes.formControl}>
-                    <Field
-                      name="TypeofBusiness"
-                      component={TextFieldRedux}
-                      placeholder="Type of Business"
-                      label="Type of Business"
-                      required
-                      className={classes.field}
-                    />
-                  </FormControl>
-                </Grid>
-                <Grid item xs={6} className='custom-space'>
-                  <FormControl className={classes.formControl}>
-                    <Field
-                      name="Numberofemployees"
-                      component={TextFieldRedux}
-                      placeholder="Number of employees"
-                      label="Number of employees"
-                      required
-                      className={classes.field}
-                    />
-                  </FormControl>
-                </Grid>
-                <Grid item xs={12} className='custom-space'>
-                  <FormControl className={classes.formControl}>
-                    <Field
-                      type='text'
-                      name="address"
-                      component={TextFieldRedux}
-                      placeholder="Number of locations"
-                      label="Number of locations"
-                      required
-                      className={classes.field}
-                    />
-                  </FormControl>
-                </Grid>
-              </Grid>
-
-              {/* <FormControl className={classes.formControl}>
-                  <Field name="passwordConfirm" component={TextFieldRedux} type="password" label="Re-type Password" required validate={[required, passwordsMatch]} className={classes.field}/>
-                </FormControl> */}
-              <div>
-                <FormControlLabel
-                  style={{marginRight:'5px'}} 
-                  control={(
-                    <Field
-                      name="checkbox"
-                      component={CheckboxRedux}
-                      required
-                      className={classes.agree}
-                    />
-                  )}
-                  label="Agree with"
-                />
-                <a href="#" className={classes.link}>Terms &amp; Condition</a>
-              </div>
-              <div className={classes.btnArea}>
-                <Button variant="contained" color="primary" type="submit">
-                  Continue<ArrowForward className={classNames(classes.rightIcon, classes.iconSmall)} disabled={submitting || pristine} />
-                </Button>
-              </div>
-            </form>
-          </section>
-        )}
-        
       </Paper>
     </Fragment>
   );

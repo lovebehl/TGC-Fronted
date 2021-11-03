@@ -51,6 +51,7 @@ function LoginForm(props) {
     pristine,
     submitting,
     deco,
+    onSubmit
   } = props;
   return (
     <Fragment>
@@ -77,7 +78,7 @@ function LoginForm(props) {
           Sign In
         </Typography>
         <section className={classes.formWrap}>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div>
               <FormControl className={classes.formControl}>
                 <Field
@@ -124,7 +125,6 @@ function LoginForm(props) {
             <div className={classes.btnArea}>
               <Button variant="contained" color="primary" size="large" type="submit">
                 Continue
-                <ArrowForward className={classNames(classes.rightIcon, classes.iconSmall)} disabled={submitting || pristine} />
               </Button>
             </div>
           </form>
@@ -143,7 +143,7 @@ LoginForm.propTypes = {
 };
 
 const LoginFormReduxed = reduxForm({
-  form: 'immutableExample',
+  form: 'loginform',
   enableReinitialize: true,
 })(LoginForm);
 

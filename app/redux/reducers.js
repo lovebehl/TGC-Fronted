@@ -6,6 +6,7 @@ import history from 'utils/history';
 
 import languageProviderReducer from 'containers/LanguageProvider/reducer';
 import uiReducer from './modules/ui';
+import userReducer from './modules/user';
 
 /**
  * Creates the main reducer with the dynamically injected ones
@@ -14,6 +15,7 @@ export default function createReducer(injectedReducers = {}) {
   const rootReducer = combineReducers({
     form,
     ui: uiReducer,
+    user:userReducer,
     language: languageProviderReducer,
     router: connectRouter(history),
     ...injectedReducers,
