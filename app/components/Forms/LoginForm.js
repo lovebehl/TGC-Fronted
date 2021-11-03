@@ -18,7 +18,6 @@ import Paper from '@material-ui/core/Paper';
 import Icon from '@material-ui/core/Icon';
 import Hidden from '@material-ui/core/Hidden';
 import brand from 'dan-api/dummy/brand';
-import logo from 'dan-images/logo.png';
 import { TextFieldRedux, CheckboxRedux } from './ReduxFormMUI';
 import styles from './user-jss';
 
@@ -57,7 +56,7 @@ function LoginForm(props) {
     <Fragment>
       <Hidden mdUp>
         <NavLink to="/" className={classNames(classes.brand, classes.outer)}>
-          <img src={logo} alt={brand.name} />
+          <img src={"./images/logo.png"} alt={brand.name} />
           {brand.name}
         </NavLink>
       </Hidden>
