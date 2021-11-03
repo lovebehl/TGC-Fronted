@@ -14,7 +14,6 @@ import ArrowForward from '@material-ui/icons/ArrowForward';
 import Icon from '@material-ui/core/Icon';
 import Hidden from '@material-ui/core/Hidden';
 import brand from 'dan-api/dummy/brand';
-import logo from 'dan-images/logo.png';
 import { TextFieldRedux, CheckboxRedux } from './ReduxFormMUI';
 import styles from './user-jss';
 import { Grid } from '@material-ui/core'
@@ -57,7 +56,7 @@ function RegisterForm(props) {
     <Fragment>
       <Hidden mdUp>
         <NavLink to="/" className={classNames(classes.brand, classes.outer)}>
-          <img src={logo} alt={brand.name} />
+          <img src={"./images/logo.png"} alt={brand.name} />
           {brand.name}
         </NavLink>
       </Hidden>
@@ -65,7 +64,7 @@ function RegisterForm(props) {
         <Hidden smDown>
           <div className={classes.topBar}>
             <NavLink to="/" className={classes.brand}>
-              <img src={logo} alt={brand.name} />
+              <img src={"./images/logo.png"} alt={brand.name} />
               {brand.name}
             </NavLink>
             <Typography variant="h6" className={classes.title} gutterBottom>

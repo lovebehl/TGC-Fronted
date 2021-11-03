@@ -12,7 +12,6 @@ import { NavLink,Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
 import AppBar from '@material-ui/core/AppBar';
-import logo from 'dan-images/logo.png';
 import brand from 'dan-api/dummy/brand';
 import SideNavMobile from './SideNavMobile';
 import styles from './landingStyle-jss';
@@ -84,7 +83,7 @@ function Header(props) {
         <div className={classes.container}>
           <div className={classes.spaceContainer}>
             <NavLink to="/" className={classes.brand}>
-              <img src={logo} alt={brand.name} />
+              <img src={"./images/logo.png"} alt={brand.name} />
               {brand.name}
             </NavLink>
             <Hidden mdDown>
