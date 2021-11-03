@@ -7,7 +7,6 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import brand from 'dan-api/dummy/brand';
-import logo from 'dan-images/logo.svg';
 import styles from '../Sidebar/sidebar-jss';
 
 function MenuContent(props) {
@@ -34,7 +33,7 @@ function MenuContent(props) {
     <div className={classes.drawerInner}>
       <div className={classes.drawerHeader}>
         <div className={classes.brandBig}>
-          <img src={logo} alt={brand.name} />
+          <img src={"./images/logo.png"} alt={brand.name} />
           <h3>{brand.name}</h3>
         </div>
       </div>
