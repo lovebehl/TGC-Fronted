@@ -8,15 +8,14 @@ import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import MenuIcon from '@material-ui/icons/Menu';
-import { NavLink } from 'react-router-dom';
+import { NavLink,Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
 import AppBar from '@material-ui/core/AppBar';
 import logo from 'dan-images/logo.png';
-// import brand from 'dan-api/dummy/brand';
+import brand from 'dan-api/dummy/brand';
 import SideNavMobile from './SideNavMobile';
 import styles from './landingStyle-jss';
-import Constants from '../../constants/constants';
 
 
 let counter = 0;
@@ -37,12 +36,11 @@ function Header(props) {
   const gradient = useSelector(state => state.getIn([reducer, 'gradient']));
 
   const menuList = [
-    createData('Home', '#feature'),
-    createData('Advantages', '#showcase'),
-    // createData("Contact", "#testimonials"),
-    createData('Apply', '#tech'),
-    createData('Login', '#pricing'),
+    createData('Home', '#home'),
+    createData('Advantages', '#advantages'),
     createData('Contact', '#contact'),
+    createData('Apply', ' #apply'),
+    createData('Log In', '/login'),
   ];
 
   const toggleDrawerOpen = () => {
@@ -62,18 +60,17 @@ function Header(props) {
           open={open}
           anchor="left"
         >
-          <SideNavMobile
-            menuList={menuList}
-            closeDrawer={toggleDrawerClose}
-          />
+          <SideNavMobile menuList={menuList} closeDrawer={toggleDrawerClose} />
         </SwipeableDrawer>
       </Hidden>
       <AppBar
-        className={classNames(
-          classes.header,
-          turnDarker && classes.darker,
-          gradient ? classes.gradient : classes.solid
-        )}
+        className={
+          classNames(
+            classes.header,
+            turnDarker && classes.darker,
+            gradient ? classes.gradient : classes.solid
+          )
+        }
       >
         <Hidden lgUp>
           <IconButton
@@ -87,27 +84,15 @@ function Header(props) {
         <div className={classes.container}>
           <div className={classes.spaceContainer}>
             <NavLink to="/" className={classes.brand}>
-              <img src={logo} alt={Constants.brandName} />
-              {Constants.brandName}
+              <img src={logo} alt={brand.name} />
+              {brand.name}
             </NavLink>
             <Hidden mdDown>
               <nav>
-                <Scrollspy
-                  items={[
-                    'feature',
-                    'showcase',
-                    'testimonials',
-                    'tech',
-                    'pricing',
-                    'contact',
-                  ]}
-                  currentClassName="active"
-                >
-                  {menuList.map((item) => (
+                <Scrollspy items={['home', 'advantages', 'contact', 'apply', 'login']} currentClassName="active">
+                  {menuList.map(item => (
                     <li key={item.id.toString()}>
-                      <Button component={AnchorLink} href={item.url}>
-                        {item.name}
-                      </Button>
+                      <Button component={Link} to={item.url}>{item.name}</Button>
                     </li>
                   ))}
                 </Scrollspy>

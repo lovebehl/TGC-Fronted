@@ -13,18 +13,14 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import Typography from '@material-ui/core/Typography';
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import AllInclusive from '@material-ui/icons/AllInclusive';
-import Brightness5 from '@material-ui/icons/Brightness5';
-import People from '@material-ui/icons/People';
 import ArrowForward from '@material-ui/icons/ArrowForward';
 import Paper from '@material-ui/core/Paper';
 import Icon from '@material-ui/core/Icon';
 import Hidden from '@material-ui/core/Hidden';
 import brand from 'dan-api/dummy/brand';
-import logo from 'dan-images/logo.svg';
+import logo from 'dan-images/logo.png';
 import { TextFieldRedux, CheckboxRedux } from './ReduxFormMUI';
 import styles from './user-jss';
-import { ContentDivider } from '../Divider';
 
 // validation functions
 const required = value => (value === null ? 'Required' : undefined);
@@ -80,26 +76,6 @@ function LoginForm(props) {
         <Typography variant="h4" className={classes.title} gutterBottom>
           Sign In
         </Typography>
-        <Typography variant="caption" className={classes.subtitle} gutterBottom align="center">
-          Lorem ipsum dolor sit amet
-        </Typography>
-        <section className={classes.socmedLogin}>
-          <div className={classes.btnArea}>
-            <Button variant="outlined" size="small" className={classes.redBtn} type="button">
-              <AllInclusive className={classNames(classes.leftIcon, classes.iconSmall)} />
-              Socmed 1
-            </Button>
-            <Button variant="outlined" size="small" className={classes.blueBtn} type="button">
-              <Brightness5 className={classNames(classes.leftIcon, classes.iconSmall)} />
-              Socmed 2
-            </Button>
-            <Button variant="outlined" size="small" className={classes.cyanBtn} type="button">
-              <People className={classNames(classes.leftIcon, classes.iconSmall)} />
-              Socmed 3
-            </Button>
-          </div>
-          <ContentDivider content="Or sign in with email" />
-        </section>
         <section className={classes.formWrap}>
           <form onSubmit={handleSubmit}>
             <div>
@@ -116,7 +92,7 @@ function LoginForm(props) {
               </FormControl>
             </div>
             <div>
-              <FormControl className={classes.formControl}>
+              <FormControl style={{marginRight:'5px'}} className={classes.formControl}>
                 <Field
                   name="password"
                   component={TextFieldRedux}

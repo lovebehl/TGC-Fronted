@@ -1,15 +1,21 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import Corporate from '../Templates/Corporate';
-import { HomePage, HomePageScreen } from "../pageListAsync";
+import Header from '../../components/LandingPage/Header'
+import Footer from '../../components/LandingPage/Footer'
+import Banner from '../../components/LandingPage/Banner'
+import Feature from '../../components/LandingPage/Feature'
+import GoldCard from '../../components/LandingPage/GoldCard'
 
 function Landing() {
   return (
-    <Corporate>
-      <Switch>
-        <Route exact path="/" component={HomePageScreen} />
-      </Switch>
-    </Corporate>
+    <>
+    <Header/>
+    <main>
+      <Banner/>
+      <Feature/>
+      <GoldCard/>
+    </main>
+    <Footer/>
+    </>
   );
 }
 
