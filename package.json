@@ -18,7 +18,7 @@
     "preinstall": "npm run npmcheckversion",
     "postinstall": "npm run build:dll",
     "prebuild": "npm run build:clean",
-    "build": "cross-env NODE_ENV=production webpack --config internals/webpack/webpack.prod.babel.js --color --progress",
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider; cross-env NODE_ENV=production webpack --config internals/webpack/webpack.prod.babel.js --color --progress",
     "build:clean": "rimraf ./build",
     "build:dll": "node ./internals/scripts/dependencies.js",
     "start": "export NODE_OPTIONS=--openssl-legacy-provider; cross-env NODE_ENV=development node server",
