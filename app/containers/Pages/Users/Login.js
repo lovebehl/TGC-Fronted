@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 import brand from 'dan-api/dummy/brand';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import { LoginForm } from 'dan-components/index.js';
+import { LoginForm } from 'dan-components';
 import styles from 'dan-components/Forms/user-jss';
 
 function Login(props) {
-
+  const submitForm = values => {
+    setTimeout(() => {
+      console.log(`You submitted:\n\n${values}`);
+      window.location.href = '/app';
+    }, 500); // simulate server latency
+  };
 
   const title = brand.name + ' - Login';
   const description = brand.desc;
@@ -24,7 +29,7 @@ function Login(props) {
       </Helmet>
       <div className={classes.container}>
         <div className={classes.userFormWrap}>
-          <LoginForm />
+          <LoginForm onSubmit={(values) => submitForm(values)} />
         </div>
       </div>
     </div>

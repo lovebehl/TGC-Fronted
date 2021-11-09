@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import logo from 'dan-images/logo.png';
 import brand from 'dan-api/dummy/brand';
 import link from 'dan-api/ui/link';
+import Constants from '../../constants/contants';
+
 import styles from './landingStyle-jss';
-import { TextField, Typography, Box } from '@material-ui/core';
-import { Link } from 'react-router-dom';
-import LocalPhoneIcon from '@material-ui/icons/LocalPhone';
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
+
 let counter = 0;
 function createData(name, url) {
   counter += 1;
@@ -19,96 +19,86 @@ function createData(name, url) {
     url,
   };
 }
+
+function Decoration(props) {
+  const { classes } = props;
+  return (
+    <div>
+      <svg fill="#fff" className={classes.footerDecoration}>
+        <use xlinkHref="/images/decoration/petal5.svg#Petal-Bottom" />
+      </svg>
+    </div>
+  );
+}
+
+Decoration.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+const DecorationStyled = withStyles(styles)(Decoration);
+
 function Footer(props) {
   const { classes } = props;
   const menuList = [
-    createData('Home', '#home'),
-    createData('Advantages', '#advantages'),
-    createData('Contact', '#contact'),
-    createData('Apply', '#apply'),
-    createData('Log In', '#login'),
+    createData('Home', '#feature'),
+    createData('Advantages', '#showcase'),
+    createData('Apply', '#testi'),
+    createData('Login', '#tech'),
+    // createData('pricing', '#pricing'),
+    createData('contact', '#contact'),
   ];
 
   return (
     <footer className={classes.footer}>
+      <DecorationStyled />
       <div className={classes.container}>
         <div className={classes.spaceContainer}>
-          <div className={classes.grideThree}>
-            <Typography variant='h4' className={classes.colorWhite}>Contact Us</Typography>
-            <Typography className={classes.colorWhite}>Send us a message.</Typography>
-            <form className='footer-contact'>
-              <TextField
-                id="outlined-multiline-static"
-                label="Name"
-                fullWidth
-                InputLabelProps={{
-                  style: { color: '#fff' },
-                }}
-                InputProps={{
-                  classes: {
-                     root: classes.borderColor
-                  }
-                }}
-              />
-              <TextField
-                id="outlined-multiline-static"
-                label="Email"
-                fullWidth
-                InputLabelProps={{
-                  style: { color: '#fff' },
-                }}
-                InputProps={{
-                  classes: {
-                     root: classes.borderColor
-                  }
-                }}
-              />
-              <TextField
-                id="outlined-multiline-static"
-                label="Multiline"
-                multiline
-                rows={4}
-                fullWidth
-                InputLabelProps={{
-                  style: { color: '#fff' },
-                }}
-                InputProps={{
-                  classes: {
-                     root: classes.borderColor
-                  }
-                }}
-              />
-            </form>
+          <div className={classes.brand}>
+            <img src={logo} alt={Constants.brandName} />
+            {Constants.brandName}
           </div>
-          <div className={classes.grideThree}>
-            <Box display='flex' justifyContent='center'>
-              <Box textAlign='left' display='inline-block' alignItems='left'>
-                <Typography variant='h4' className={classes.colorWhite}>Sitemap</Typography>
-                <Typography className={classes.colorWhite}>All our pages</Typography>
-                <nav className={classes.sitemap}>
-                  <ul>
-                    {menuList.map(item => (
-                      <li className={classes.sitemapLink} key={item.id.toString()}>
-                        <Link className={classes.sitemapLinkUi}>{item.name}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                </nav>
-              </Box>
-            </Box>
-          </div>
-          <div className={classes.grideThree}>
-            <div className={classes.BrandFooterAlign}>
-              <div className={classes.Footerbrand}>
-                <img src={logo} alt={brand.name} />
-              </div>
-              <ul className={classes.BrandFooterContact}>
-                <li><LocalPhoneIcon/> 713-554-GOLD</li>
-                <li><MailOutlineIcon/> info@texasgold.com</li>
-              </ul>
-              <Typography variant='body2' className={classes.colorWhite}>Copyright 2021 All Rights Reserved  Texas Gold Card, Inc. </Typography>
-            </div>
-          </div>
+          <nav>
+            <ul>
+              {menuList.map((item) => (
+                <li key={item.id.toString()}>
+                  <Button size="small" href={item.url}>
+                    {item.name}
+                  </Button>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div className={classes.copyright}>
+        <div className={classes.container}>
+          <p>&copy; {Constants.copyRightTGC} </p>
+          <span>
+            <IconButton
+              color="primary"
+              className={classes.button}
+              href={link.twitter}
+              target="_blank"
+            >
+              <i className="ion-logo-twitter" />
+            </IconButton>
+            <IconButton
+              color="primary"
+              className={classes.button}
+              href={link.pinterest}
+              target="_blank"
+            >
+              <i className="ion-logo-pinterest" />
+            </IconButton>
+            <IconButton
+              color="primary"
+              className={classes.button}
+              href={link.github}
+              target="_blank"
+            >
+              <i className="ion-logo-github" />
+            </IconButton>
+          </span>
         </div>
       </div>
     </footer>
@@ -118,4 +108,5 @@ function Footer(props) {
 Footer.propTypes = {
   classes: PropTypes.object.isRequired,
 };
+
 export default withStyles(styles)(Footer);

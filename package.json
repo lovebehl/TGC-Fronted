@@ -21,7 +21,7 @@
     "build": "cross-env NODE_ENV=production webpack --config internals/webpack/webpack.prod.babel.js --color --progress",
     "build:clean": "rimraf ./build",
     "build:dll": "node ./internals/scripts/dependencies.js",
-    "start": "cross-env NODE_ENV=development node server",
+    "start": "cross-env NODE_ENV=development --openssl-legacy-provider node server",
     "start:tunnel": "cross-env NODE_ENV=development ENABLE_TUNNEL=true node server",
     "start:production": "npm run test && npm run build && npm run start:prod",
     "start:prod": "cross-env NODE_ENV=production node server",
@@ -58,7 +58,8 @@
   },
   "pre-commit": "lint:staged",
   "resolutions": {
-    "babel-core": "7.0.0-bridge.0"
+    "babel-core": "7.0.0-bridge.0",
+    "moment": "2.24.0"
   },
   "dllPlugin": {
     "path": "node_modules/react-boilerplate-dlls",
@@ -136,7 +137,8 @@
     "keycode": "^2.2.0",
     "lodash": "^4.17.20",
     "minimist": "^1.2.5",
-    "moment": "^2.22.2",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.28",
     "mui-datatables": "^3.7.7",
     "prop-types": "15.7.2",
     "rcolor": "^1.0.1",
@@ -184,6 +186,7 @@
     "sanitize.css": "8.0.0",
     "serve-favicon": "^2.4.5",
     "slick-carousel": "^1.8.1",
+    "styled-components": "^5.3.3",
     "tunnel-agent": "^0.6.0",
     "warning": "4.0.2"
   },

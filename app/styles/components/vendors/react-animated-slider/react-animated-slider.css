@@ -328,6 +328,11 @@
   border-radius: 4px;
 }
 
+.slider-wrapper,
+.slide {
+  height: calc(100vh - 75px);
+}
+
 .slider-wrapper.medium,
 .slider-wrapper.medium .slide {
   height: 500px;
