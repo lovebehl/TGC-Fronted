@@ -7,8 +7,8 @@
     "npm": ">=6.9.0",
     "node": "14.18.1"
   },
-  "author": "Dandelion Pro Team",
-  "license": "Envato Regular License",
+  "author": "LivCoder Development Team",
+  "license": "LivCoder",
   "scripts": {
     "analyze:clean": "rimraf stats.json",
     "preanalyze": "npm run analyze:clean",
