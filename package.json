@@ -1,11 +1,11 @@
 {
-  "name": "TGC Gold",
+  "name": "TGC_Gold",
   "version": "0.0.1",
   "description": "Gold Backed Money Solution For Member to Member Transactions",
   "private": true,
   "engines": {
     "npm": ">=6.9.0",
-    "node": "14.18.1"
+    "node": ">=14.18.1"
   },
   "author": "LivCoder Development Team",
   "license": "LivCoder",

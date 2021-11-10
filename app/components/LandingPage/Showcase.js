@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import withWidth from '@material-ui/core/withWidth';
-import Grid from '@material-ui/core/Grid';
-import ShowcaseCard from '../CardPaper/ShowcaseCard';
-import ShowcaseParallax from './ShowcaseParallax';
-import Title from './Title';
-import styles from './landingStyle-jss';
-import Constants from '../../constants/contants';
+import React from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import withWidth from "@material-ui/core/withWidth";
+import Grid from "@material-ui/core/Grid";
+import ShowcaseCard from "../CardPaper/ShowcaseCard";
+import ShowcaseParallax from "./ShowcaseParallax";
+import Title from "./Title";
+import styles from "./landingStyle-jss";
+import Constants from "../../constants/contants";
 
 function Showcase(props) {
   const { classes, slideMode, width } = props;
@@ -17,48 +17,35 @@ function Showcase(props) {
       {!slideMode && <ShowcaseParallax />}
       <div className={classes.container}>
         <Grid container className={classes.root} spacing={5}>
-          <Grid item sm={6} md={4} xs={12}>
-            <Title
-              title={Constants.escapeTheMatrix}
-              align={width === "lg" ? "left" : "center"}
-              monocolor={slideMode && true}
-            />
-            <ShowcaseCard
-              title="Nam sollicitudin"
-              desc="Aenean facilisis vitae purus facilisis semper."
-              action="Try it"
-              image="/images/screen/thumb1.jpg"
-            />
-            <ShowcaseCard
-              title="Vestibulum nec"
-              desc="Cras convallis lacus orci, tristique tincidunt magna"
-              action="See Demo"
-              image="/images/screen/thumb3.jpg"
-            />
+          <Grid xs={12}>
+            <Title title={Constants.escapeTheMatrix} align={"center"} />
           </Grid>
-          <Grid item sm={6} md={4} xs={12}>
-            <ShowcaseCard
-              title="Curabitur"
-              desc="Nulla vehicula leo ut augue tincidunt"
-              action="See Demo"
-              image="/images/screen/thumb5.jpg"
-            />
-            <ShowcaseCard
-              title="Nam sollicitudin"
-              desc="Aenean facilisis vitae purus facilisis semper."
-              action="Try It"
-              image="/images/screen/thumb2.jpg"
-            />
-          </Grid>
-          <Grid item sm={6} md={4} xs={12}>
-            <div className={classes.lastShowcase}>
+          <Grid container className={classes.root} spacing={5}>
+            <Grid item sm={6} md={4} xs={12}>
               <ShowcaseCard
-                title="Nam posuere accumsan"
-                desc="Duis sed augue phasellus ante massa."
+                title="Curabitur"
+                desc="Nulla vehicula leo ut augue tincidunt"
                 action="See Demo"
-                image="/images/screen/thumb4.jpg"
+                image="/images/screen/thumb5.jpg"
               />
-            </div>
+            </Grid>
+
+            <Grid item sm={6} md={4} xs={12}>
+              <ShowcaseCard
+                title="Curabitur"
+                desc="Nulla vehicula leo ut augue tincidunt"
+                action="See Demo"
+                image="/images/screen/thumb5.jpg"
+              />
+            </Grid>
+            <Grid item sm={6} md={4} xs={12}>
+              <ShowcaseCard
+                title="Curabitur"
+                desc="Nulla vehicula leo ut augue tincidunt"
+                action="See Demo"
+                image="/images/screen/thumb5.jpg"
+              />
+            </Grid>
           </Grid>
         </Grid>
       </div>
@@ -69,12 +56,11 @@ function Showcase(props) {
 Showcase.propTypes = {
   classes: PropTypes.object.isRequired,
   width: PropTypes.string.isRequired,
-  slideMode: PropTypes.bool
+  slideMode: PropTypes.bool,
 };
 
 Showcase.defaultProps = {
-  slideMode: false
+  slideMode: false,
 };
-
 
 export default withWidth()(withStyles(styles)(Showcase));
