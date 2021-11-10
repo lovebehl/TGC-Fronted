@@ -25,8 +25,8 @@ import './styles/layout/base.scss';
 import LanguageProvider from 'containers/LanguageProvider';
 
 // Load the favicon and the .htaccess file
-import '!file-loader?name=[name].[ext]!../public/favicons/favicon.ico'; // eslint-disable-line
-import 'file-loader?name=.htaccess!./.htaccess'; // eslint-disable-line
+import "!file-loader?name=[name].[ext]!../public/favicons/favicon.ico"; // eslint-disable-line
+import "file-loader?name=.htaccess!./.htaccess"; // eslint-disable-line
 
 import configureStore from './redux/configureStore';
 
@@ -47,7 +47,7 @@ const initialState = {};
 const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById('app');
 
-const render = messages => {
+const render = (messages) => {
   ReactDOM.render(
     <Provider store={store}>
       <LanguageProvider messages={messages}>
@@ -56,7 +56,7 @@ const render = messages => {
         </ConnectedRouter>
       </LanguageProvider>
     </Provider>,
-    MOUNT_NODE,
+    MOUNT_NODE
   );
 };
 
@@ -72,15 +72,16 @@ if (module.hot) {
 
 // Chunked polyfill for browsers without Intl support
 if (!window.Intl) {
-  new Promise(resolve => {
+  new Promise((resolve) => {
     resolve(import('intl'));
   })
     .then(() => Promise.all([
-      import('intl/locale-data/jsonp/en.js'),
-      import('intl/locale-data/jsonp/de.js'),
-    ])) // eslint-disable-line prettier/prettier
+        import('intl/locale-data/jsonp/en.js'),
+        import('intl/locale-data/jsonp/de.js'),
+    ])
+    ) // eslint-disable-line prettier/prettier
     .then(() => render(translationMessages))
-    .catch(err => {
+    .catch((err) => {
       throw err;
     });
 } else {

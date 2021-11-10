@@ -412,7 +412,7 @@ const styles = theme => ({
       display: 'none'
     },
     '& figure > div': {
-      height: 1000,
+      height: 'auto',
       width: '100%',
       position: 'relative',
       top: 500,

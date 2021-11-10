@@ -286,7 +286,7 @@ const styles = theme => ({
     padding: 5,
     background: theme.palette.grey[100],
     fontSize: 14,
-    position: 'relative'
+    position: 'relative',
   },
   welcomeWrap: {
     position: 'relative'
