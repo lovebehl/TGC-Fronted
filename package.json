@@ -5,7 +5,7 @@
   "private": true,
   "engines": {
     "npm": ">=6.9.0",
-    "node": ">=14.18.1"
+    "node": "14.18.1"
   },
   "author": "LivCoder Development Team",
   "license": "LivCoder",
