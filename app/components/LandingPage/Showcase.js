@@ -10,7 +10,7 @@ import styles from "./landingStyle-jss";
 import Constants from "../../constants/contants";
 
 function Showcase(props) {
-  const { classes, slideMode, width } = props;
+  const { classes, slideMode } = props;
 
   return (
     <section className={classes.showcase}>
@@ -18,7 +18,7 @@ function Showcase(props) {
       <div className={classes.container}>
         <Grid container className={classes.root} spacing={5}>
           <Grid xs={12}>
-            <Title title={Constants.escapeTheMatrix} align={"center"} />
+            <Title title={Constants.escapeTheMatrix} />
           </Grid>
           <Grid container className={classes.root} spacing={5}>
             <Grid item sm={6} md={4} xs={12}>

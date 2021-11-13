@@ -54,7 +54,7 @@ Title.propTypes = {
 
 Title.defaultProps = {
   desc: '',
-  align: 'left',
+  align: 'center',
   nomargin: false,
   monocolor: false
 };
