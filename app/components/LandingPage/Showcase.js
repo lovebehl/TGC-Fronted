@@ -10,7 +10,7 @@ import styles from "./landingStyle-jss";
 import Constants from "../../constants/contants";
 
 function Showcase(props) {
-  const { classes, slideMode } = props;
+  const { classes, slideMode, width } = props;
 
   return (
     <section className={classes.showcase}>
