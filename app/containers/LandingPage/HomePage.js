@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Banner,
   Feature,
-  Showcase,
+  EscapeMatrix,
   Testimonials,
   Technology,
   Pricing,
@@ -19,7 +19,7 @@ function HomePage() {
         <Feature />
       </section>
       <section id="showcase">
-        <Showcase />
+        <EscapeMatrix />
       </section>
       <section id="testimonials">
         <Testimonials />

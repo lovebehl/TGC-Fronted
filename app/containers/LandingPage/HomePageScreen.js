@@ -2,10 +2,8 @@ import React from "react";
 import {
   Banner,
   Feature,
-  Showcase,
+  EscapeMatrix,
   Testimonials,
-  Technology,
-  Pricing,
   Contact,
 } from "dan-components";
 
@@ -19,7 +17,7 @@ function HomePageScreen() {
         <Feature />
       </section>
       <section id="showcase">
-        <Showcase />
+        <EscapeMatrix />
       </section>
       <section id="testimonials">
         <Testimonials />

@@ -19,6 +19,7 @@ export ShowcaseSlider from './LandingPage/ShowcaseSlider';
 export Technology from './LandingPage/Technology';
 export Testimonials from './LandingPage/Testimonials';
 export SideNav from './LandingPage/SideNav';
+export EscapeMatrix from './LandingPage/EscapeMatrix.js';
 // Dashboard and Widget
 export CounterWidget from './Counter/CounterWidget';
 export CounterTrading from './Counter/CounterTrading';

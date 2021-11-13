@@ -13,6 +13,7 @@ function NewsCard(props) {
     classes,
     children,
     title,
+    onClickButton,
     image,
     ...rest
   } = props;
@@ -27,11 +28,8 @@ function NewsCard(props) {
         {children}
       </CardContent>
       <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
+        <Button size="large" color="primary" onClick={onClickButton}>
+          Read more
         </Button>
       </CardActions>
     </Card>
@@ -43,6 +41,7 @@ NewsCard.propTypes = {
   children: PropTypes.node.isRequired,
   title: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
+  onClickButton: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(NewsCard);

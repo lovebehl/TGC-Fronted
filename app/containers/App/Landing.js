@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Corporate from '../Templates/Corporate';
-import { HomePage, HomePageScreen } from "../pageListAsync";
+import { HomePageScreen } from "../pageListAsync";
 
 function Landing() {
   return (
