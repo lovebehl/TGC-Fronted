@@ -143,4 +143,3 @@ export AddBoard from './TaskBoard/AddBoard';
 // Error
 export ErrorWrap from './Error/ErrorWrap';
 // Theme an Layout Settings
-export TemplateSettings from './TemplateSettings';
