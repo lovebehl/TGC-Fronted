@@ -16,7 +16,6 @@ import {
   changeLayoutAction,
   changeDirectionAction
 } from 'dan-redux/actions/uiActions';
-import { TemplateSettings } from 'dan-components';
 import applicationTheme from '../../styles/theme/applicationTheme';
 
 const styles = {
@@ -169,24 +168,6 @@ function ThemeWrapper(props) {
               colorPrimary: classes.loadingWrap,
               barColorPrimary: classes.bar
             }}
-          />
-          <TemplateSettings
-            palette={paletteState}
-            selectedValue={color}
-            mode={mode}
-            gradient={gradient}
-            decoration={decoration}
-            bgPosition={bgPosition}
-            layout={layout}
-            direction={direction}
-            changeTheme={handleChangeTheme}
-            changeRandomTheme={handleChangeRandomTheme}
-            changeMode={handleChangeMode}
-            changeGradient={handleChangeGradient}
-            changeDecoration={handleChangeDecoration}
-            changeBgPosition={handleChangeBgPosition}
-            changeLayout={handleChangeLayout}
-            changeDirection={handleChangeDirection}
           />
           <ThemeContext.Provider value={handleChangeMode}>
             {children}
