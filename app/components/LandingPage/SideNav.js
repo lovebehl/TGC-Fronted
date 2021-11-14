@@ -24,13 +24,15 @@ function SideNav(props) {
 
   const anchor = 'left';
   const menuList = [
-    createData(0,'Home', '#home'),
-    createData(1,'Advantages', '#advantages'),
-    createData(2,'Contact', '#contact'),
-    createData(3,'Apply', '#apply'),
-    createData(4,'Log In', '#login'),
+    createData(0, 'Home', '#banner'),
+    createData(1, 'Feature', '#feature'),
+    createData(2, 'Showcase', '#showcase'),
+    createData(3, 'Testimonials', '#testimonials'),
+    createData(4, 'Technology', '#tech'),
+    createData(5, 'Pricing', '#pricing'),
+    createData(6, 'Contact', '#contact'),
   ];
-    
+
   return (
     <Drawer
       variant="permanent"

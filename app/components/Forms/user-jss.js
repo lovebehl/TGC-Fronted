@@ -115,11 +115,11 @@ const styles = theme => ({
     },
   },
   formWrap: {
-    // [theme.breakpoints.up('sm')]: {
-    //   padding: '0 100px'
-    // },
+    [theme.breakpoints.up('sm')]: {
+      padding: '0 100px'
+    },
     [theme.breakpoints.up('md')]: {
-      padding: '0 50px'
+      padding: '0 150px'
     },
   },
   pageFormWrap: {
@@ -217,7 +217,7 @@ const styles = theme => ({
   btnArea: {
     display: 'flex',
     justifyContent: 'space-around',
-    margin: `${theme.spacing(2)}px 0 0  0`,
+    margin: `${theme.spacing(2)}px 0`,
     fontSize: 12,
     '& $label': {
       fontSize: 12,
@@ -286,13 +286,13 @@ const styles = theme => ({
     padding: 5,
     background: theme.palette.grey[100],
     fontSize: 14,
-    position: 'relative'
+    position: 'relative',
   },
   welcomeWrap: {
     position: 'relative'
   },
   tab: {
-    margin: `0  0 ${theme.spacing(3)}px 0`,
+    margin: `${theme.spacing(3)}px 0 ${theme.spacing(1)}px`,
   },
   link: {
     fontSize: '0.875rem',

@@ -10,92 +10,58 @@ import { withStyles } from '@material-ui/core/styles';
 import link from 'dan-api/ui/link';
 import styles from './landingStyle-jss';
 import BannerParallax from './BannerParallax';
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { Grid } from '@material-ui/core/Grid';
-import { Box, Container } from '@material-ui/core';
+import Constants from '../../constants/contants';
+
 function Banner(props) {
   const { classes, slideMode } = props;
+
   const reducer = 'ui';
   const gradient = useSelector(state => state.getIn([reducer, 'gradient']));
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1
-  };
-  console.log(classes)
-
   return (
     <div
-      className={
-        classNames(
-          classes.banner,
-          gradient ? classes.gradient : classes.solid,
-          slideMode ? classes.out : classes.fit
-        )
-      }
+      className={classNames(
+        classes.banner,
+        gradient ? classes.gradient : classes.solid,
+        slideMode ? classes.out : classes.fit
+      )}
     >
       {!slideMode && <BannerParallax />}
-      <Slider {...settings}>
-        
-        <>
-          <div className={!slideMode ? classes.container : ''}>
-            <Box
-              sx={{
-                display: 'flex',
-                alignItems: 'center'
-              }}
-              className='MuiGrid-container'
+      <div className={!slideMode ? classes.container : ""}>
+        <Typography component="h2" variant="h2" gutterBottom>
+          {Constants.goldBackend}
+        </Typography>
+        <Typography component="p" variant="h5" gutterBottom>
+          {Constants.forMemberTransactions}{" "}
+        </Typography>
+        <div className={classes.btnArea} />
+        <div className={classes.previewApp}>
+          <Hidden smDown>
+            <div
+              className={classNames(
+                classes.m2,
+                classes.screen,
+                slideMode ? classes.bottom : ""
+              )}
             >
-              <Box align='left' className='MuiGrid-grid-xs-8'>
-                <Box mb={2}>
-                  <Typography m={2} variant='h3' className={classes.colorWhite}>A gold-backed</Typography>
-                </Box>
-                <Box mb={2}>
-                  <Typography mb={2}>money solution</Typography>
-                  <Box mb={2}>
-                  </Box>
-                  <Typography mb={2}>For Member to Member Transactions</Typography>
-                </Box>
-              </Box>
-
-              <Box sx={{ justifyContent: 'flex-end' }} className='MuiGrid-grid-xs-4 ' >
-                <img src='https://dummyimage.com/300x300/d8c28bba/fff' alt='#' />
-              </Box>
-            </Box>
+              <img src="/images/screen/crypto.jpg" alt="crm dashboard" />
+            </div>
+          </Hidden>
+          <div className={classNames(classes.m1, classes.screen)}>
+            <img src="/images/screen/personal.jpg" alt="personal dashboard" />
           </div>
-        </>
-        <>
-          <div className={!slideMode ? classes.container : ''}>
-            <Box
-              sx={{
-                display: 'flex',
-                alignItems: 'center'
-              }}
-              className='MuiGrid-container'
+          <Hidden smDown>
+            <div
+              className={classNames(
+                classes.m3,
+                classes.screen,
+                slideMode ? classes.bottom : ""
+              )}
             >
-              <Box align='left' className='MuiGrid-grid-xs-8'>
-                <Box mb={2}>
-                  <Typography m={2} variant='h3' className={classes.colorWhite}>A gold-backed</Typography>
-                </Box>
-                <Box mb={2}>
-                  <Typography mb={2}>money solution</Typography>
-                  <Box mb={2}>
-                  </Box>
-                  <Typography mb={2}>For Member to Member Transactions</Typography>
-                </Box>
-              </Box>
-
-              <Box sx={{ justifyContent: 'flex-end' }} className='MuiGrid-grid-xs-4 ' >
-                <img src='https://dummyimage.com/300x300/d8c28bba/fff' alt='#' />
-              </Box>
-            </Box>
-          </div>
-        </>
-      </Slider>
+              <img src="/images/screen/crm.jpg" alt="crypto dashboard" />
+            </div>
+          </Hidden>
+        </div>
+      </div>
     </div>
   );
 }

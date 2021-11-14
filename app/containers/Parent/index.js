@@ -49,7 +49,7 @@ function Parent(props) {
     }
     return (
       <Typography className={classes.title} variant="h6">
-        {item.name}
+        { item.name }
       </Typography>
     );
   });

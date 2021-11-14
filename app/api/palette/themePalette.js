@@ -1,33 +1,16 @@
 module.exports = {
-  greyTheme: {
+  goldTheme: {
     palette: {
       primary: {
-        light: '#ECEFF1',
-        main: '#607D8B',
-        dark: '#455A64',
+        light: '#FFF9C4',
+        main: '#FF9100',
+        dark: '#FF6D00',
         contrastText: '#fff',
       },
       secondary: {
-        light: '#E0E0E0',
-        main: '#757575',
-        dark: '#424242',
-        contrastText: '#fff',
-      },
-    },
-  },
-  
-  blueCyanTheme: {
-    palette: {
-      primary: {
-        light: '#E8EAF6',
-        main: '#3F51B5',
-        dark: '#283593',
-        contrastText: '#fff',
-      },
-      secondary: {
-        light: '#E0F7FA',
-        main: '#00BCD4',
-        dark: '#00838F',
+        light: '#EFEBE9',
+        main: '#8D6E63',
+        dark: '#4E342E',
         contrastText: '#fff',
       },
     },

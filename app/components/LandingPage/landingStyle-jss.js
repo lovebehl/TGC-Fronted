@@ -169,33 +169,6 @@ const styles = theme => ({
       marginRight: 10,
     },
   },
-  Footerbrand: {
-    display: 'flex',
-    position: 'relative',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 16,
-    fontWeight: 500,
-    color: theme.palette.common.white,
-    textDecoration: 'none',
-    '& img': {
-      height: 90,
-      marginRight: 10,
-    },
-  },
-  BrandFooterAlign: {
-    textAlign: 'center'
-  },
-  BrandFooterContact: {
-    display: 'inline-block',
-    verticalAlign: 'middle',
-    marginTop: '40px',
-    textAlign: 'left',
-    '& li': {
-      marginBottom: '15px',
-      color: '#fff'
-    }
-  },
   gradient: {},
   solid: {},
   fit: {},
@@ -439,7 +412,7 @@ const styles = theme => ({
       display: 'none'
     },
     '& figure > div': {
-      height: 1000,
+      height: 'auto',
       width: '100%',
       position: 'relative',
       top: 500,
@@ -500,9 +473,7 @@ const styles = theme => ({
     textAlign: 'center',
     [theme.breakpoints.down('sm')]: {
       marginTop: sectionSpaceMobile,
-    },
-    marginBottom: sectionSpace,
-
+    }
   },
   tech: {
     position: 'relative',
@@ -519,11 +490,13 @@ const styles = theme => ({
     [theme.breakpoints.up('md')]: {
       width: 840,
     },
-    [theme.breakpoints.up('lg')]: {
-      width: 1140,
-    },
     margin: '0 auto',
-
+    '& [class*="slider-wrapper"]': {
+      [theme.breakpoints.up('sm')]: {
+        height: 420
+      },
+      height: 240,
+    },
     '& [class*="track"]': {
       [theme.breakpoints.up('sm')]: {
         width: 540,
@@ -534,8 +507,12 @@ const styles = theme => ({
       position: 'relative',
       '& > *': {
         borderRadius: theme.rounded.medium,
-        overflow: 'hidden',
-        padding: '0 15px'
+        [theme.breakpoints.up('sm')]: {
+          width: 540,
+          height: 400,
+        },
+        height: 240,
+        overflow: 'hidden'
       }
     },
     '& [class*="previousButton"], [class*="nextButton"]': {
@@ -740,24 +717,28 @@ const styles = theme => ({
   contactText: {
     marginTop: theme.spacing(3)
   },
-  borderColor: {
-    '&::placeholder': {
-      color: '#fff'
-    },
-    borderColor: '#9d9d9d',
-    color: '#fff'
-  },
   footer: {
     background: theme.palette.type === 'dark' ? gradientBgDark(theme) : gradientBgLight(theme),
-    paddingTop: theme.spacing(5),
-    paddingBottom: theme.spacing(5),
-    position: 'relative',
+    paddingTop: theme.spacing(10),
+    position: 'absolute',
+    bottom: -300,
+    height: 330,
     width: '100%',
     overflow: 'hidden',
     '& $brand': {
       color: theme.palette.text.primary
     },
-
+    '& nav': {
+      '& li': {
+        display: 'inline-block',
+        margin: `0 ${theme.spacing(3)}`,
+        '& a': {
+          fontSize: 11,
+          textTransform: 'capitalize',
+          fontWeight: theme.typography.fontWeightRegular
+        }
+      }
+    },
     '& $spaceContainer': {
       [theme.breakpoints.down('sm')]: {
         flexDirection: 'column',
@@ -774,20 +755,45 @@ const styles = theme => ({
       }
     }
   },
-  sitemap: {
-    marginTop: 30,
-    textAlign: 'left'
+  footerDecoration: {
+    width: '100%',
+    position: 'absolute',
+    top: 0,
+    height: 330,
+    fill: theme.palette.type === 'dark' ? darken(theme.palette.primary.main, 0.7) : theme.palette.primary.light,
+    [theme.breakpoints.up(1400)]: {
+      transform: 'scale(2, 1)'
+    },
+    [theme.breakpoints.up('xl')]: {
+      background: theme.palette.type === 'dark' ? darken(theme.palette.primary.main, 0.7) : theme.palette.primary.light,
+    },
   },
-  sitemapLink: {
-    marginBottom: 10,
-  },
-  sitemapLinkUi: {
-    color: '#fff',
-    textDecoration: 'none'
-  },
-  grideThree: {
-    flex: '0 0 33.33%',
-    maxWidth: '33.33%'
+  copyright: {
+    '& p': {
+      flex: 1,
+      fontSize: 12,
+      marginTop: theme.spacing(1),
+      color: theme.palette.text.secondary,
+    },
+    '& $container': {
+      borderTop: `1px solid ${theme.palette.divider}`,
+      padding: theme.spacing(1),
+      marginTop: theme.spacing(1),
+      display: 'flex'
+    },
+    '& span': {
+      '& a': {
+        width: 'auto',
+        height: 'auto',
+        '& i': {
+          color: theme.palette.primary.main,
+          width: 24,
+          height: 24,
+          fontSize: 24,
+          lineHeight: '24px'
+        }
+      }
+    }
   },
   btnLight: {
     borderColor: theme.palette.common.white,
