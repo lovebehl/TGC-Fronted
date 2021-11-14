@@ -8,10 +8,10 @@ import Title from "./Title";
 import styles from "./landingStyle-jss";
 import Constants from "../../constants/contants";
 import { NewsCard } from "dan-components";
-import Typography from '@material-ui/core/Typography';
+import Typography from "@material-ui/core/Typography";
 import imgApi from "dan-api/images/photos";
 
-function Showcase(props) {
+function EscapeMatrix(props) {
   const { classes, slideMode, width } = props;
 
   const escapeMatrixData = [
@@ -33,7 +33,10 @@ function Showcase(props) {
     <section className={classes.showcase}>
       {!slideMode && <ShowcaseParallax />}
       <div className={classes.container}>
-        <Grid container className={classes.root} spacing={5}>
+        <Grid
+          className={classes.root}
+          xs={12}
+        >
           <Grid xs={12}>
             <Title title={Constants.escapeTheMatrix} />
           </Grid>
@@ -46,16 +49,10 @@ function Showcase(props) {
                     title={item.title}
                     onClickButton={() => alert("hello")}
                   >
-                    <Typography
-                      gutterBottom
-                      variant="h6"
-                      component="h2"
-                    >
+                    <Typography gutterBottom variant="h6" component="h2">
                       {item.subTitle}
                     </Typography>
-                    <Typography component="p">
-                      {item.desc}
-                    </Typography>
+                    <Typography component="p">{item.desc}</Typography>
                   </NewsCard>
                 </Grid>
               );
@@ -67,14 +64,14 @@ function Showcase(props) {
   );
 }
 
-Showcase.propTypes = {
+EscapeMatrix.propTypes = {
   classes: PropTypes.object.isRequired,
   width: PropTypes.string.isRequired,
   slideMode: PropTypes.bool,
 };
 
-Showcase.defaultProps = {
+EscapeMatrix.defaultProps = {
   slideMode: false,
 };
 
-export default withWidth()(withStyles(styles)(Showcase));
+export default withWidth()(withStyles(styles)(EscapeMatrix));
