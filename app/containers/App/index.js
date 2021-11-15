@@ -5,7 +5,6 @@ import Auth from './Auth';
 import Application from './Application';
 import LandingCorporate from './Landing';
 import LandingCreative from './LandingCreative';
-import ArticleNews from './ArticleNews';
 import ThemeWrapper from './ThemeWrapper';
 window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true;
 
