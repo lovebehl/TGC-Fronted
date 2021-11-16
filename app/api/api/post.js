@@ -1,6 +1,6 @@
 import { red } from "@material-ui/core/colors";
 import showLog from "../../utils/logger";
-import API from "./Api";
+import API from "./api";
 export const callPost = async (url, data) => {
   try {
     showLog("data", data);

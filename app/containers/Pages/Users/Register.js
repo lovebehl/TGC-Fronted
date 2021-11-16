@@ -6,7 +6,7 @@ import brand from "dan-api/dummy/brand";
 import { RegisterForm } from "dan-components";
 import styles from "dan-components/Forms/user-jss";
 import showLog from "../../../utils/logger";
-import { registerUser } from "dan-api/api/callapi";
+import { registerUser } from "../../../api/api/callApi";
 import Toast from "../../../utils/snackbar";
 
 function Register(props) {
