@@ -17,7 +17,6 @@ import brand from "dan-api/dummy/brand";
 import { TextFieldRedux, CheckboxRedux } from "./ReduxFormMUI";
 import styles from "./user-jss";
 import { Grid } from "@material-ui/core";
-import "./custom.css";
 import showLog from "../../utils/logger";
 
 // validation functions
