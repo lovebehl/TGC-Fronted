@@ -11,6 +11,10 @@ export const HomePageScreen = loadable(
     fallback: <Loading />,
   }
 );
+export const Signup = loadable(() =>
+  import('./Signup'), {
+  fallback: <Loading />,
+});
 export const HomePage = loadable(() => import("./LandingPage/HomePage"), {
   fallback: <Loading />,
 });

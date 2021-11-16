@@ -5,14 +5,14 @@ import { withStyles } from "@material-ui/core/styles";
 import brand from "dan-api/dummy/brand";
 import { RegisterForm } from "dan-components";
 import styles from "dan-components/Forms/user-jss";
-import showLog from "../../../utils/logger";
+import showLog from "../../utils/logger";
 import { registerUser } from "dan-api/api/callapi";
-import Toast from "../../../utils/snackbar";
+import Toast from "../../utils/snackbar";
 
-function Register(props) {
+function Signup(props) {
   const [open, setopen] = useState(false);
-  const [message, setmessage] = useState("");
-  const [status, setstatus] = useState("");
+  const [message, setmessage] = useState('');
+  const [status, setstatus] = useState('');
   const handleClose = () => {
     setopen(false);
   };
@@ -102,8 +102,8 @@ function Register(props) {
   );
 }
 
-Register.propTypes = {
+Signup.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Register);
+export default withStyles(styles)(Signup);
