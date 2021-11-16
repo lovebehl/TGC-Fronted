@@ -17,7 +17,7 @@ import brand from "dan-api/dummy/brand";
 import { TextFieldRedux, CheckboxRedux } from "./ReduxFormMUI";
 import styles from "./user-jss";
 import { Grid } from "@material-ui/core";
-// import "./custom.css";
+import "./custom.css";
 import showLog from "../../utils/logger";
 
 // validation functions
@@ -74,7 +74,7 @@ function RegisterForm(props) {
         <section className={classes.formWrap}>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="custom-form-design"
+            // className="custom-form-design"
           >
             <Grid container spacing={2}>
               <Grid item xs={12} className="leftGrid">
@@ -113,7 +113,7 @@ function RegisterForm(props) {
               </Grid>
             </Grid>
             <Grid container spacing={2}>
-              <Grid item xs={6} className="custom-space">
+              <Grid item xs={6}>
                 <FormControl className={classes.formControl}>
                   <Field
                     name="fname"
@@ -125,7 +125,7 @@ function RegisterForm(props) {
                   />
                 </FormControl>
               </Grid>
-              <Grid item xs={6} className="custom-space">
+              <Grid item xs={6}>
                 <FormControl className={classes.formControl}>
                   <Field
                     name="lname"
@@ -137,7 +137,7 @@ function RegisterForm(props) {
                   />
                 </FormControl>
               </Grid>
-              <Grid item xs={6} className="custom-space">
+              <Grid item xs={6}>
                 <FormControl className={classes.formControl}>
                   <Field
                     name="email"
@@ -151,7 +151,7 @@ function RegisterForm(props) {
                   />
                 </FormControl>
               </Grid>
-              <Grid item xs={6} className="custom-space">
+              <Grid item xs={6}>
                 <FormControl className={classes.formControl}>
                   <Field
                     name="password"
@@ -164,33 +164,36 @@ function RegisterForm(props) {
                   />
                 </FormControl>
               </Grid>
-              <Grid item xs={4} className="custom-space">
+              <Grid item xs={6} className={classes.formControl}>
                 <FormControl className={classes.formControl}>
                   <Field
                     type="text"
                     name="phoneNumber"
                     component={TextFieldRedux}
-                    placeholder="Phone Number"
-                    label="Phone Number"
+                    placeholder="Phone No."
+                    label="Phone No."
                     required
                     className={classes.field}
                   />
                 </FormControl>
               </Grid>
-              <Grid item xs={4} className="custom-space">
+              <Grid item xs={6} className={classes.formControl}>
                 <FormControl className={classes.formControl}>
                   <Field
-                    name="birth"
                     type="date"
+                    name="phoneNumber"
                     component={TextFieldRedux}
-                    placeholder="Birth Date"
-                    label=""
+                    placeholder="Date Of Birth"
+                    label="Date Of Birth"
                     required
                     className={classes.field}
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
                   />
                 </FormControl>
               </Grid>
-              <Grid item xs={4} className="custom-space">
+              <Grid item xs={12} className="custom-space">
                 <FormControl className={classes.formControl}>
                   <Field
                     type="number"
@@ -240,7 +243,7 @@ function RegisterForm(props) {
                   />
                 </FormControl>
               </Grid>
-              <Grid item xs={6} className="custom-space">
+              <Grid item xs={6}>
                 <FormControl className={classes.formControl}>
                   <Field
                     name="zip"
@@ -252,7 +255,7 @@ function RegisterForm(props) {
                   />
                 </FormControl>
               </Grid>
-              <Grid item xs={6} className="custom-space">
+              <Grid item xs={6}>
                 <FormControl className={classes.formControl}>
                   <Field
                     type="text"
@@ -264,7 +267,7 @@ function RegisterForm(props) {
                   />
                 </FormControl>
               </Grid>
-              <Grid item xs={6} className="custom-space">
+              <Grid item xs={6}>
                 <FormControl className={classes.formControl}>
                   <Field
                     type="text"
@@ -280,7 +283,7 @@ function RegisterForm(props) {
             {type === "C" && (
               <>
                 <Grid container spacing={2}>
-                  <Grid item xs={4} className="custom-space">
+                  <Grid item xs={6}>
                     <FormControl className={classes.formControl}>
                       <Field
                         name="typeOfBusiness"
@@ -292,7 +295,7 @@ function RegisterForm(props) {
                       />
                     </FormControl>
                   </Grid>
-                  <Grid item xs={4} className="custom-space">
+                  <Grid item xs={6}>
                     <FormControl className={classes.formControl}>
                       <Field
                         name="numberOfEmployees"
@@ -304,7 +307,7 @@ function RegisterForm(props) {
                       />
                     </FormControl>
                   </Grid>
-                  <Grid item xs={4} className="custom-space">
+                  <Grid item xs={12}>
                     <FormControl className={classes.formControl}>
                       <Field
                         type="text"
@@ -339,7 +342,7 @@ function RegisterForm(props) {
             </div>
             <div className={classes.btnArea}>
               <Button variant="contained" color="primary" type="submit">
-                Submit Application
+                Submit
               </Button>
               <Button
                 size="small"
