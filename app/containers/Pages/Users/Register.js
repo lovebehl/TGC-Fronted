@@ -8,6 +8,7 @@ import styles from "dan-components/Forms/user-jss";
 import showLog from "../../../utils/logger";
 import { registerUser } from "../../../api/api/callApi";
 import Toast from "../../../utils/snackbar";
+import Constants from "../../../constants/contants";
 
 function Register(props) {
   const [open, setopen] = useState(false);
@@ -73,7 +74,7 @@ function Register(props) {
     }
   };
 
-  const title = brand.name + " - Register";
+  const title = Constants.brandName + " - Register";
   const description = brand.desc;
   const { classes } = props;
   return (

@@ -20,6 +20,7 @@ import Hidden from "@material-ui/core/Hidden";
 import brand from "dan-api/dummy/brand";
 import { TextFieldRedux, CheckboxRedux } from "./ReduxFormMUI";
 import styles from "./user-jss";
+import Constants from "../../constants/contants";
 
 // validation functions
 const required = (value) => (value === null ? "Required" : undefined);
@@ -49,16 +50,16 @@ function LoginForm(props) {
     <Fragment>
       <Hidden mdUp>
         <NavLink to="/" className={classNames(classes.brand, classes.outer)}>
-          <img src={"./images/logo.png"} alt={brand.name} />
-          {brand.name}
+          <img src={"./images/logo.png"} alt={Constants.brandName} />
+          {Constants.brandName}
         </NavLink>
       </Hidden>
       <Paper className={classNames(classes.paperWrap, deco && classes.petal)}>
         <Hidden smDown>
           <div className={classes.topBar}>
             <NavLink to="/" className={classes.brand}>
-              <img src={"./images/logo.png"} alt={brand.name} />
-              {brand.name}
+              <img src={"./images/logo.png"} alt={Constants.brandName} />
+              {Constants.brandName}
             </NavLink>
             <Button
               size="small"

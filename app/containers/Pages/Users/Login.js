@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { LoginForm } from 'dan-components';
 import styles from 'dan-components/Forms/user-jss';
+import Constants from '../../../constants/contants';
 
 function Login(props) {
   const submitForm = values => {
@@ -14,7 +15,7 @@ function Login(props) {
     }, 500); // simulate server latency
   };
 
-  const title = brand.name + ' - Login';
+  const title = Constants.brandName + ' - Login';
   const description = brand.desc;
   const { classes } = props;
   return (

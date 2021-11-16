@@ -18,6 +18,7 @@ import { TextFieldRedux, CheckboxRedux } from "./ReduxFormMUI";
 import styles from "./user-jss";
 import { Grid } from "@material-ui/core";
 import showLog from "../../utils/logger";
+import Constants from "../../constants/contants";
 
 // validation functions
 const required = (value) => (value === null ? "Required" : undefined);
@@ -53,24 +54,23 @@ function RegisterForm(props) {
     <Fragment>
       <Hidden mdUp>
         <NavLink to="/" className={classNames(classes.brand, classes.outer)}>
-          <img src={"./images/logo.png"} alt={brand.name} />
-          {brand.name}
+          <img src="./images/logo.png" alt={Constants.brandName} />
+          {Constants.brandName}
         </NavLink>
       </Hidden>
       <Paper className={classNames(classes.paperWrap, deco && classes.petal)}>
         <Hidden smDown>
           <div className={classes.topBar}>
             <NavLink to="/" className={classes.brand}>
-              <img src={"./images/logo.png"} alt={brand.name} />
-              {brand.name}
+              <img src="./images/logo.png" alt={Constants.brandName} />
+              {Constants.brandName}
             </NavLink>
-            <Typography variant="h6" className={classes.title} gutterBottom>
-              Member Application
-            </Typography>
           </div>
         </Hidden>
-
-        <section className={classes.formWrap}>
+        <Typography variant="h4" className={classes.title} gutterBottom>
+          {Constants.memberApplication}
+        </Typography>
+        <section className={classes.formWrap} style={{ marginTop: 30 }}>
           <form
             onSubmit={handleSubmit(onSubmit)}
             // className="custom-form-design"
@@ -94,7 +94,6 @@ function RegisterForm(props) {
                   label="Individual"
                 />
                 <FormControlLabel
-                  style={{ marginRight: "5px" }}
                   control={
                     <Field
                       name="company"
@@ -192,7 +191,7 @@ function RegisterForm(props) {
                   />
                 </FormControl>
               </Grid>
-              <Grid item xs={12} className="custom-space">
+              <Grid item xs={12}>
                 <FormControl className={classes.formControl}>
                   <Field
                     type="number"
@@ -205,7 +204,7 @@ function RegisterForm(props) {
                   />
                 </FormControl>
               </Grid>
-              <Grid item xs={12} className="custom-space">
+              <Grid item xs={12}>
                 <FormControl className={classes.formControl}>
                   <Field
                     type="text"
@@ -218,7 +217,7 @@ function RegisterForm(props) {
                   />
                 </FormControl>
               </Grid>
-              <Grid item xs={3} className="custom-space">
+              <Grid item xs={3}>
                 <FormControl className={classes.formControl}>
                   <Field
                     name="city"
@@ -230,7 +229,7 @@ function RegisterForm(props) {
                   />
                 </FormControl>
               </Grid>
-              <Grid item xs={3} className="custom-space">
+              <Grid item xs={3}>
                 <FormControl className={classes.formControl}>
                   <Field
                     name="state"
