@@ -30,6 +30,9 @@ function UserMenu(props) {
     openMenu: null
   });
 
+  const { classes, dark } = props;
+  const { anchorEl, openMenu } = menuState;
+  
   const handleMenu = menu => (event) => {
     const { openMenu } = menuState;
     setMenuState({
@@ -42,8 +45,10 @@ function UserMenu(props) {
     setMenuState({ anchorEl: null, openMenu: null });
   };
 
-  const { classes, dark } = props;
-  const { anchorEl, openMenu } = menuState;
+  const logoutFunction = () =>{
+    localStorage.removeItem("token")
+  }
+
   return (
     <div>
       <IconButton
@@ -158,7 +163,7 @@ function UserMenu(props) {
           </ListItemIcon>
         </MenuItem>
         <Divider />
-        <MenuItem onClick={handleClose} component={Link} to="/">
+        <MenuItem onClick={()=>{handleClose(); logoutFunction()}} component={Link} to="/">
           <ListItemIcon>
             <ExitToApp />
           </ListItemIcon>

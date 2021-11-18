@@ -16,6 +16,9 @@ import { ConnectedRouter } from 'connected-react-router/immutable';
 import FontFaceObserver from 'fontfaceobserver';
 import history from 'utils/history';
 import 'sanitize.css/sanitize.css';
+import axios from "axios";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Import root app
 import App from 'containers/App';
@@ -47,11 +50,16 @@ const initialState = {};
 const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById('app');
 
+axios.defaults.baseURL = 'https://texas-gold-card-backend-g4oyr.ondigitalocean.app';
+
 const render = (messages) => {
   ReactDOM.render(
     <Provider store={store}>
       <LanguageProvider messages={messages}>
         <ConnectedRouter history={history}>
+          <ToastContainer 
+            theme="colored"
+          />
           <App />
         </ConnectedRouter>
       </LanguageProvider>
@@ -76,8 +84,8 @@ if (!window.Intl) {
     resolve(import('intl'));
   })
     .then(() => Promise.all([
-        import('intl/locale-data/jsonp/en.js'),
-        import('intl/locale-data/jsonp/de.js'),
+      import('intl/locale-data/jsonp/en.js'),
+      import('intl/locale-data/jsonp/de.js'),
     ])
     ) // eslint-disable-line prettier/prettier
     .then(() => render(translationMessages))

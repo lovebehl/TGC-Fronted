@@ -80,7 +80,7 @@ function LoginForm(props) {
         <Typography variant="h4" className={classes.title} gutterBottom>
           Sign In
         </Typography>
-        <Typography variant="caption" className={classes.subtitle} gutterBottom align="center">
+        {/* <Typography variant="caption" className={classes.subtitle} gutterBottom align="center">
           Lorem ipsum dolor sit amet
         </Typography>
         <section className={classes.socmedLogin}>
@@ -99,7 +99,7 @@ function LoginForm(props) {
             </Button>
           </div>
           <ContentDivider content="Or sign in with email" />
-        </section>
+        </section> */}
         <section className={classes.formWrap}>
           <form onSubmit={handleSubmit}>
             <div>
@@ -142,7 +142,7 @@ function LoginForm(props) {
               </FormControl>
             </div>
             <div className={classes.optArea}>
-              <FormControlLabel className={classes.label} control={<Field name="checkbox" component={CheckboxRedux} />} label="Remember" />
+              <FormControlLabel className={classes.label} control={<Field  name="remember" component={CheckboxRedux} />} label="Remember" />
               <Button size="small" component={LinkBtn} to="/reset-password" className={classes.buttonLink}>Forgot Password</Button>
             </div>
             <div className={classes.btnArea}>
