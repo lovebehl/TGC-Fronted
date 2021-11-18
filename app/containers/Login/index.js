@@ -1,24 +1,26 @@
-import React, { useState } from "react";
-import { Helmet } from "react-helmet";
-import brand from "dan-api/dummy/brand";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
-import { LoginForm } from "dan-components/index.js";
-import styles from "dan-components/Forms/user-jss";
-import showLog from "../../utils/logger";
-import { loginUser } from "../../api/api/callApi";
-import Toast from "../../utils/snackbar";
+import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
+import brand from 'dan-api/dummy/brand';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import { LoginForm } from 'dan-components/index.js';
+import styles from 'dan-components/Forms/user-jss';
+import showLog from '../../utils/logger';
+import { loginUser } from '../../api/api/callApi';
+import Toast from '../../utils/snackbar';
+import ENUM from '../../constants/enum';
+import Constants from '../../constants/contants';
 
 function Login(props) {
   const [open, setopen] = useState(false);
-  const [message, setmessage] = useState("");
-  const [status, setstatus] = useState("");
+  const [message, setmessage] = useState('');
+  const [status, setstatus] = useState('');
 
   const handleClose = () => {
     setopen(false);
   };
 
-  const title = brand.name + " - Login";
+  const title = brand.name + ' - Login';
   const description = brand.desc;
   const { classes } = props;
 
@@ -31,30 +33,33 @@ function Login(props) {
       });
       const response = await loginUser(data);
       if (response) {
-        if (response.STATUS === "ERROR") {
+        if (response.STATUS === ENUM.ERROR) {
           setmessage(response.DATA.message);
-          setstatus("error");
+          setstatus(ENUM.error);
           setopen(true);
         } else if (response === "") {
-          setmessage("Some Error Ocurred !!");
-          setstatus("error");
+          setmessage(Constants.someErrorOcurred);
+          setstatus(ENUM.error);
           setopen(true);
-        } else if (response.STATUS === "SUCCESS") {
-          setmessage("Logged in Successfully");
-          setstatus("success");
-          setopen(true);
-          localStorage.setItem(
-            "tgc-qxzsewa-access-token",
-            response.DATA.accessToken
-          );
-          localStorage.setItem("tgc-qxzsewa-email", data.email);
-          setTimeout(() => {
-            window.location.href = "/app";
-          }, 1000);
-        }
+        } else if (response.STATUS === ENUM.SUCCESS) {
+                 setmessage(Constants.loggedSucessfully);
+                 setstatus(ENUM.statusSucess);
+                 setopen(true);
+                 localStorage.setItem(
+                   "tgc-qxzsewa-access-token",
+                   response.DATA.accessToken
+                 );
+                 localStorage.setItem(
+                   "tgc-qxzsewa-email",
+                   data.email
+                 );
+                 setTimeout(() => {
+                   window.location.href = "/app";
+                 }, 1000);
+               }
       }
     } catch (error) {
-      showLog("Submit Login Error", error);
+      showLog(Constants.submitLoginError, error);
     }
   };
   return (
