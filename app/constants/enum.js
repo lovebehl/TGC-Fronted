@@ -1,6 +1,6 @@
 export const ENUM = {
-         ERROR: "ERROR",
-         SUCCESS: "SUCCESS",
-         error: "error",
-         statusSucess: "success",
-       };
+    ERROR: "ERROR",
+    SUCCESS: "SUCCESS",
+    error: "error",
+    statusSucess: "success",
+};
