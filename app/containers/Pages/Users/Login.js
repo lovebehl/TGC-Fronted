@@ -6,13 +6,50 @@ import { withStyles } from '@material-ui/core/styles';
 import { LoginForm } from 'dan-components';
 import styles from 'dan-components/Forms/user-jss';
 import Constants from '../../../constants/contants';
-
+import { ContactSupportOutlined } from '@material-ui/icons';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 function Login(props) {
-  const submitForm = values => {
-    setTimeout(() => {
-      console.log(`You submitted:\n\n${values}`);
-      window.location.href = '/app';
-    }, 500); // simulate server latency
+  const submitForm = values => { 
+    const { email, password, remember } = Object.fromEntries(values._root.entries) 
+    const loginResponse = toast.loading("please wait...")
+    axios.post("/api/auth/signin", { email, password })
+      .then(res => {
+        const { token } = res.data;
+        localStorage.setItem("token", token);
+
+        if (remember) {
+          localStorage.setItem("email", email);
+          localStorage.setItem("password", password);
+          localStorage.setItem("remember", remember);
+        } else {
+          localStorage.clear()
+        }
+        toast.update(loginResponse, {
+          render: "Login successfully!",
+          type: "success",
+          isLoading: false,
+          closeOnClick: true,
+          autoClose: true,
+        });
+
+        // return
+        setTimeout(() => {
+          console.log(`You submitted:\n\n${values}`);
+          window.location.href = '/app';
+        }, 500); // simulate server latency
+      })
+      .catch(err => {
+        console.log(err)
+        toast.update(loginResponse, {
+          render: "Email or Password wrong",
+          type: "error",
+          isLoading: false,
+          closeOnClick: true,
+          autoClose: true,
+        });
+      })
+
   };
 
   const title = Constants.brandName + ' - Login';

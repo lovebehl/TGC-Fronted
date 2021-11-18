@@ -75,6 +75,26 @@ function LoginForm(props) {
         <Typography variant="h4" className={classes.title} gutterBottom>
           Sign In
         </Typography>
+        {/* <Typography variant="caption" className={classes.subtitle} gutterBottom align="center">
+          Lorem ipsum dolor sit amet
+        </Typography>
+        <section className={classes.socmedLogin}>
+          <div className={classes.btnArea}>
+            <Button variant="outlined" size="small" className={classes.redBtn} type="button">
+              <AllInclusive className={classNames(classes.leftIcon, classes.iconSmall)} />
+              Socmed 1
+            </Button>
+            <Button variant="outlined" size="small" className={classes.blueBtn} type="button">
+              <Brightness5 className={classNames(classes.leftIcon, classes.iconSmall)} />
+              Socmed 2
+            </Button>
+            <Button variant="outlined" size="small" className={classes.cyanBtn} type="button">
+              <People className={classNames(classes.leftIcon, classes.iconSmall)} />
+              Socmed 3
+            </Button>
+          </div>
+          <ContentDivider content="Or sign in with email" />
+        </section> */}
         <section className={classes.formWrap}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div>
@@ -120,19 +140,8 @@ function LoginForm(props) {
               </FormControl>
             </div>
             <div className={classes.optArea}>
-              <FormControlLabel
-                className={classes.label}
-                control={<Field name="checkbox" component={CheckboxRedux} />}
-                label="Remember"
-              />
-              <Button
-                size="small"
-                component={LinkBtn}
-                to="/reset-password"
-                className={classes.buttonLink}
-              >
-                Forgot Password
-              </Button>
+              <FormControlLabel className={classes.label} control={<Field  name="remember" component={CheckboxRedux} />} label="Remember" />
+              <Button size="small" component={LinkBtn} to="/reset-password" className={classes.buttonLink}>Forgot Password</Button>
             </div>
             <div className={classes.btnArea}>
               <Button

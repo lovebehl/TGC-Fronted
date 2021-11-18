@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useHistory } from 'react-router-dom';
 import Outer from '../Templates/Outer';
 import {
   Login, LoginV2, LoginV3,
@@ -10,6 +10,13 @@ import {
 } from '../pageListAsync';
 
 function Auth() {
+
+  const history = useHistory()
+
+  if(localStorage.getItem("token")){
+    history.push("/app")
+  }
+
   return (
     <Outer>
       <Switch>

@@ -11,6 +11,7 @@ import Register from '../Pages/Users/Register';
 window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true;
 
 function App() {
+  
   return (
     <ThemeWrapper>
       <Switch>

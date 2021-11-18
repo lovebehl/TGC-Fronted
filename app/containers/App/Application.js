@@ -37,6 +37,11 @@ import {
 
 function Application(props) {
   const { history } = props;
+
+  if(!localStorage.getItem("token")){
+    history.push("/login")
+  }
+
   const changeMode = useContext(ThemeContext);
   return (
     <Dashboard history={history} changeMode={changeMode}>
