@@ -35,6 +35,7 @@ import configureStore from './redux/configureStore';
 
 // Import i18n messages
 import { translationMessages } from './i18n';
+import Constants from './constants/contants';
 
 // Observe loading of Open Sans (to remove open sans, remove the <link> tag in
 // the index.html file and this observer)
@@ -50,7 +51,7 @@ const initialState = {};
 const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById('app');
 
-axios.defaults.baseURL = 'https://texas-gold-card-backend-g4oyr.ondigitalocean.app';
+axios.defaults.baseURL = Constants.axios_default_url
 
 const render = (messages) => {
   ReactDOM.render(

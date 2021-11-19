@@ -8,33 +8,34 @@ import styles from 'dan-components/Forms/user-jss';
 import { ContactSupportOutlined } from '@material-ui/icons';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import Constants from '../../../constants/contants';
 
 
 
 function Login(props) {
-    
-  
+
+
   const submitForm = values => {
-    
+
     const { email, password, remember } = Object.fromEntries(values._root.entries)
-    
-    const loginResponse = toast.loading("please wait...")
+
+    const loginResponse = toast.loading(Constants.please_wait)
 
     axios.post("/api/auth/signin", { email, password })
       .then(res => {
         const { token } = res.data
-        localStorage.setItem("token", token)
+        localStorage.setItem(Constants.token, token)
 
         if (remember) {
-          localStorage.setItem("email", email)
-          localStorage.setItem("password", password)
-          localStorage.setItem("remember", remember)
+          localStorage.setItem(Constants.email, email)
+          localStorage.setItem(Constants.password, password)
+          localStorage.setItem(Constants.remember, remember)
         } else {
           localStorage.clear()
         }
         toast.update(loginResponse, {
-          render: "Login successfully!",
-          type: "success",
+          render: Constants.login_successfully,
+          type: Constants.success,
           isLoading: false,
           closeOnClick: true,
           autoClose: true,
@@ -49,8 +50,8 @@ function Login(props) {
       .catch(err => {
         console.log(err)
         toast.update(loginResponse, {
-          render: "Email or Password wrong",
-          type: "error",
+          render: Constants.email_password_wrong,
+          type: Constants.error,
           isLoading: false,
           closeOnClick: true,
           autoClose: true,
