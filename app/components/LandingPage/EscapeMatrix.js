@@ -1,31 +1,31 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
-import withWidth from "@material-ui/core/withWidth";
-import Grid from "@material-ui/core/Grid";
-import ShowcaseParallax from "./ShowcaseParallax";
-import Title from "./Title";
-import styles from "./landingStyle-jss";
-import Constants from "../../constants/contants";
-import { NewsCard } from "dan-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import withWidth from '@material-ui/core/withWidth';
+import Grid from '@material-ui/core/Grid';
+import { NewsCard } from 'dan-components';
 import Typography from '@material-ui/core/Typography';
-import imgApi from "dan-api/images/photos";
+import imgApi from 'dan-api/images/photos';
+import ShowcaseParallax from './ShowcaseParallax';
+import Title from './Title';
+import styles from './landingStyle-jss';
+import Constants from '../../constants/contants';
 
-function Showcase(props) {
+function EscapeMatrix(props) {
   const { classes, slideMode, width } = props;
 
   const escapeMatrixData = [
     {
-      title: "Escape the Matrix",
-      subTitle: "Texas Gold dollars’ value are tied to the price of Gold",
+      title: 'Escape the Matrix',
+      subTitle: 'Texas Gold dollars’ value are tied to the price of Gold',
       desc:
-        "Imagine a life of using money system based on markets and the price of gold instead of a fiat currency system malevolently and perpetulently designed to rob you of your wealth.",
+        'Imagine a life of using money system based on markets and the price of gold instead of a fiat currency system malevolently and perpetulently designed to rob you of your wealth.',
     },
     {
-      title: "Escape the Matrix",
-      subTitle: "Texas Gold dollars’ value are tied to the price of Gold",
+      title: 'Escape the Matrix 2',
+      subTitle: 'Texas Gold dollars’ value are tied to the price of Gold',
       desc:
-        "Imagine a life of using money system based on markets and the price of gold instead of a fiat currency system malevolently and perpetulently designed to rob you of your wealth.",
+        'Imagine a life of using money system based on markets and the price of gold instead of a fiat currency system malevolently and perpetulently designed to rob you of your wealth.',
     },
   ];
 
@@ -33,7 +33,10 @@ function Showcase(props) {
     <section className={classes.showcase}>
       {!slideMode && <ShowcaseParallax />}
       <div className={classes.container}>
-        <Grid container className={classes.root} spacing={5}>
+        <Grid
+          className={classes.root}
+          xs={12}
+        >
           <Grid xs={12}>
             <Title title={Constants.escapeTheMatrix} />
           </Grid>
@@ -46,16 +49,10 @@ function Showcase(props) {
                     title={item.title}
                     onClickButton={() => alert("hello")}
                   >
-                    <Typography
-                      gutterBottom
-                      variant="h6"
-                      component="h2"
-                    >
+                    <Typography gutterBottom variant="h6" component="h2">
                       {item.subTitle}
                     </Typography>
-                    <Typography component="p">
-                      {item.desc}
-                    </Typography>
+                    <Typography component="p">{item.desc}</Typography>
                   </NewsCard>
                 </Grid>
               );
@@ -67,14 +64,14 @@ function Showcase(props) {
   );
 }
 
-Showcase.propTypes = {
+EscapeMatrix.propTypes = {
   classes: PropTypes.object.isRequired,
   width: PropTypes.string.isRequired,
   slideMode: PropTypes.bool,
 };
 
-Showcase.defaultProps = {
+EscapeMatrix.defaultProps = {
   slideMode: false,
 };
 
-export default withWidth()(withStyles(styles)(Showcase));
+export default withWidth()(withStyles(styles)(EscapeMatrix));

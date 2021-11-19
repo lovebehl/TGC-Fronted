@@ -41,7 +41,6 @@ function Header(props) {
     createData("Advantages", "#showcase"),
     // createData("Contact", "#testimonials"),
     createData("Apply", "#tech"),
-    createData("Login", "#pricing"),
     createData("Contact", "#contact"),
   ];
 
@@ -110,6 +109,11 @@ function Header(props) {
                       </Button>
                     </li>
                   ))}
+                  <NavLink to="/login">
+                    <li>
+                      <Button href="/login">Login</Button>
+                    </li>
+                  </NavLink>
                 </Scrollspy>
               </nav>
             </Hidden>

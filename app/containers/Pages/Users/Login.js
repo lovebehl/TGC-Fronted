@@ -60,7 +60,7 @@ function Login(props) {
 
   };
 
-  const title = brand.name + ' - Login';
+  const title = Constants.brandName + ' - Login';
   const description = brand.desc;
   const { classes } = props;
   return (
