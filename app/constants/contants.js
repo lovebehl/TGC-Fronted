@@ -6,6 +6,10 @@ const Constants = {
   tgcAdvantages: 'TGC Advantages',
   texasGoldCard: 'Texas Gold Card in Action!',
   escapeTheMatrix: 'Escape the Matrix',
+  memberApplication: 'Member Application',
+  loggedSucessfully: 'Logged in Successfully',
+  someErrorOcurred: 'Some Error Ocurred !',
+  submitLoginError: 'Submit Login Error'
 };
 
 export default Constants;

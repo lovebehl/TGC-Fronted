@@ -8,9 +8,10 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 import Scrollspy from 'react-scrollspy';
 import { withStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
-import logo from 'dan-images/logo.svg';
+import logo from 'dan-images/logo.png';
 import brand from 'dan-api/dummy/brand';
 import styles from '../Sidebar/sidebar-jss';
+import Constants from "../../constants/contants";
 
 function SideNavMobile(props) {
   const { classes, menuList, closeDrawer } = props;
@@ -32,20 +33,38 @@ function SideNavMobile(props) {
     <div className={classes.drawerInnerMobile}>
       <div className={classes.drawerHeader}>
         <div className={classes.brandBig}>
-          <img src={logo} alt={brand.name} />
-          <h3>{brand.name}</h3>
+          <img src={logo} alt={Constants.brandName} />
+          <h3>{Constants.brandName}</h3>
         </div>
       </div>
-      <div className={classNames(classes.menuContainer, classes.landingNav, classes.rounded)}>
+      <div
+        className={classNames(
+          classes.menuContainer,
+          classes.landingNav,
+          classes.rounded
+        )}
+      >
         <List className={classes.dense} component="nav">
-          <Scrollspy items={['feature', 'showcase', 'testimonials', 'tech', 'pricing', 'contact']} currentClassName={classes.active}>
+          <Scrollspy
+            items={[
+              "feature",
+              "showcase",
+              "testimonials",
+              "tech",
+              "pricing",
+              "contact",
+            ]}
+            currentClassName={classes.active}
+          >
             {getMenus}
           </Scrollspy>
         </List>
         <Typography variant="caption" className={classes.copyright}>
-          &copy; 2020 Dandelion Designs
+          &copy; Copyright 2021
           <br />
-            All Right Reserved
+          All Rights Reserved Texas Gold
+          <br />
+          Card, Inc.
         </Typography>
       </div>
     </div>

@@ -5,6 +5,7 @@ import {
   EscapeMatrix,
   Testimonials,
   Contact,
+  MemberExperience,
 } from "dan-components";
 
 function HomePageScreen() {
@@ -20,7 +21,7 @@ function HomePageScreen() {
         <EscapeMatrix />
       </section>
       <section id="testimonials">
-        <Testimonials />
+        <MemberExperience />
       </section>
       <section id="contact">
         <Contact />

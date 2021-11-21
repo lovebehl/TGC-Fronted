@@ -7,7 +7,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import brand from 'dan-api/dummy/brand';
-import logo from 'dan-images/logo.svg';
+import logo from 'dan-images/logo.png';
 import styles from '../Sidebar/sidebar-jss';
 
 function MenuContent(props) {
@@ -35,17 +35,23 @@ function MenuContent(props) {
       <div className={classes.drawerHeader}>
         <div className={classes.brandBig}>
           <img src={logo} alt={brand.name} />
-          <h3>{brand.name}</h3>
+          <h3>TGC</h3>
         </div>
       </div>
-      <div className={classNames(classes.menuContainer, classes.landingNav, classes.rounded)}>
+      <div
+        className={classNames(
+          classes.menuContainer,
+          classes.landingNav,
+          classes.rounded
+        )}
+      >
         <List className={classes.dense} component="nav">
           {getMenus(menuList)}
         </List>
         <Typography variant="caption" className={classes.copyright}>
-          &copy; 2020 Dandelion Designs
+          &copy; Copyright 2021
           <br />
-          All Right Reserved
+          All Rights Reserved Texas Gold Card, Inc.
         </Typography>
       </div>
     </div>

@@ -2,11 +2,12 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import NotFound from 'containers/Pages/Standalone/NotFoundDedicated';
 import Auth from './Auth';
+import Login from '../Login';
 import Application from './Application';
 import LandingCorporate from './Landing';
 import LandingCreative from './LandingCreative';
-import ArticleNews from './ArticleNews';
 import ThemeWrapper from './ThemeWrapper';
+import Register from '../Pages/Users/Register';
 window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true;
 
 function App() {
@@ -16,8 +17,8 @@ function App() {
         <Route path="/" exact component={LandingCorporate} />
         <Route path="/landing-creative" exact component={LandingCreative} />
         <Route path="/app" component={Application} />
-        <Route path="/blog" component={ArticleNews} />
-        <Route path="/login" component={Auth} />
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
         <Route component={NotFound} />
       </Switch>
     </ThemeWrapper>

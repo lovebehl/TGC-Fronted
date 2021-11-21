@@ -1,187 +1,359 @@
-import React, { Fragment, useState } from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import classNames from 'classnames';
-import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
-import { Field, reduxForm } from 'redux-form/immutable';
-import Button from '@material-ui/core/Button';
-import FormControl from '@material-ui/core/FormControl';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import ArrowForward from '@material-ui/icons/ArrowForward';
-import AllInclusive from '@material-ui/icons/AllInclusive';
-import Brightness5 from '@material-ui/icons/Brightness5';
-import People from '@material-ui/icons/People';
-import Icon from '@material-ui/core/Icon';
-import Hidden from '@material-ui/core/Hidden';
-import brand from 'dan-api/dummy/brand';
-import logo from 'dan-images/logo.svg';
-import { TextFieldRedux, CheckboxRedux } from './ReduxFormMUI';
-import styles from './user-jss';
+import React, { Fragment, useState } from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import classNames from "classnames";
+import { connect } from "react-redux";
+import { NavLink } from "react-router-dom";
+import { Field, reduxForm } from "redux-form/immutable";
+import Button from "@material-ui/core/Button";
+import FormControl from "@material-ui/core/FormControl";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
+import ArrowForward from "@material-ui/icons/ArrowForward";
+import Icon from "@material-ui/core/Icon";
+import Hidden from "@material-ui/core/Hidden";
+import brand from "dan-api/dummy/brand";
+import { TextFieldRedux, CheckboxRedux } from "./ReduxFormMUI";
+import styles from "./user-jss";
+import { Grid } from "@material-ui/core";
+import showLog from "../../utils/logger";
+import Constants from "../../constants/contants";
 
 // validation functions
-const required = value => (value === null ? 'Required' : undefined);
-const email = value => (
+const required = (value) => (value === null ? "Required" : undefined);
+const email = (value) =>
   value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)
-    ? 'Invalid email'
-    : undefined
-);
+    ? "Invalid email"
+    : undefined;
 
-const passwordsMatch = (value, allValues) => {
-  if (value !== allValues.get('password')) {
-    return 'Passwords dont match';
-  }
-  return undefined;
-};
-
-const LinkBtn = React.forwardRef(function LinkBtn(props, ref) { // eslint-disable-line
+const LinkBtn = React.forwardRef(function LinkBtn(props, ref) {
+  // eslint-disable-line
   return <NavLink to={props.to} {...props} innerRef={ref} />; // eslint-disable-line
 });
 
 function RegisterForm(props) {
-  const [tab, setTab] = useState(0);
+  const [type, setType] = useState("I");
+  const { classes, handleSubmit, pristine, submitting, deco, onSubmit } = props;
 
-  const handleChangeTab = (event, value) => {
-    setTab(value);
+  const changeCheck = async (t) => {
+    try {
+      if (type === t) {
+        return;
+      } else if (type === "I") {
+        setType("C");
+      } else {
+        setType("I");
+      }
+    } catch (error) {
+      showLog("Change Individial Comapny Check Error", error);
+    }
   };
 
-  const {
-    classes,
-    handleSubmit,
-    pristine,
-    submitting,
-    deco
-  } = props;
   return (
     <Fragment>
       <Hidden mdUp>
         <NavLink to="/" className={classNames(classes.brand, classes.outer)}>
-          <img src={logo} alt={brand.name} />
-          {brand.name}
+          <img src="./images/logo.png" alt={Constants.brandName} />
+          {Constants.brandName}
         </NavLink>
       </Hidden>
       <Paper className={classNames(classes.paperWrap, deco && classes.petal)}>
         <Hidden smDown>
           <div className={classes.topBar}>
             <NavLink to="/" className={classes.brand}>
-              <img src={logo} alt={brand.name} />
-              {brand.name}
+              <img src="./images/logo.png" alt={Constants.brandName} />
+              {Constants.brandName}
             </NavLink>
-            <Button size="small" className={classes.buttonLink} component={LinkBtn} to="/login">
-              <Icon className={classes.icon}>arrow_forward</Icon>
-              Already have account ?
-            </Button>
           </div>
         </Hidden>
         <Typography variant="h4" className={classes.title} gutterBottom>
-          Register
+          {Constants.memberApplication}
         </Typography>
-        <Typography variant="caption" className={classes.subtitle} gutterBottom align="center">
-          Lorem ipsum dolor sit amet
-        </Typography>
-        <Tabs
-          value={tab}
-          onChange={handleChangeTab}
-          indicatorColor="secondary"
-          textColor="secondary"
-          centered
-          className={classes.tab}
-        >
-          <Tab label="With Email" />
-          <Tab label="With Social Media" />
-        </Tabs>
-        {tab === 0 && (
-          <section className={classes.formWrap}>
-            <form onSubmit={handleSubmit}>
-              <div>
+        <section className={classes.formWrap} style={{ marginTop: 30 }}>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            // className="custom-form-design"
+          >
+            <Grid container spacing={2}>
+              <Grid item xs={12} className="leftGrid">
+                <FormControlLabel
+                  style={{ marginRight: "15px" }}
+                  control={
+                    <Field
+                      name="individual"
+                      component={CheckboxRedux}
+                      className={classes.agree}
+                      checked={type === "I"}
+                      onChange={() => {
+                        changeCheck("I");
+                      }}
+                      value={type === "I"}
+                    />
+                  }
+                  label="Individual"
+                />
+                <FormControlLabel
+                  control={
+                    <Field
+                      name="company"
+                      component={CheckboxRedux}
+                      className={classes.agree}
+                      checked={type === "C"}
+                      onChange={() => {
+                        changeCheck("C");
+                      }}
+                      value={type === "C"}
+                    />
+                  }
+                  label="Company"
+                />
+              </Grid>
+            </Grid>
+            <Grid container spacing={2}>
+              <Grid item xs={6}>
                 <FormControl className={classes.formControl}>
                   <Field
-                    name="name"
+                    name="fname"
                     component={TextFieldRedux}
-                    placeholder="Username"
-                    label="Username"
+                    placeholder="First Name"
+                    label="First Name"
                     required
                     className={classes.field}
                   />
                 </FormControl>
-              </div>
-              <div>
+              </Grid>
+              <Grid item xs={6}>
+                <FormControl className={classes.formControl}>
+                  <Field
+                    name="lname"
+                    component={TextFieldRedux}
+                    placeholder="Last Name"
+                    label="Last Name"
+                    required
+                    className={classes.field}
+                  />
+                </FormControl>
+              </Grid>
+              <Grid item xs={6}>
                 <FormControl className={classes.formControl}>
                   <Field
                     name="email"
+                    type="Email"
                     component={TextFieldRedux}
-                    placeholder="Your Email"
-                    label="Your Email"
+                    placeholder="Email"
+                    label="Email"
                     required
                     validate={[required, email]}
                     className={classes.field}
                   />
                 </FormControl>
-              </div>
-              <div>
+              </Grid>
+              <Grid item xs={6}>
                 <FormControl className={classes.formControl}>
                   <Field
                     name="password"
+                    type="Password"
                     component={TextFieldRedux}
-                    type="password"
-                    label="Your Password"
+                    placeholder="Password"
+                    label="Password"
                     required
-                    validate={[required, passwordsMatch]}
                     className={classes.field}
                   />
                 </FormControl>
-              </div>
-              <div>
+              </Grid>
+              <Grid item xs={6} className={classes.formControl}>
                 <FormControl className={classes.formControl}>
                   <Field
-                    name="passwordConfirm"
+                    type="text"
+                    name="phoneNumber"
                     component={TextFieldRedux}
-                    type="password"
-                    label="Re-type Password"
+                    placeholder="Phone No."
+                    label="Phone No."
                     required
-                    validate={[required, passwordsMatch]}
                     className={classes.field}
                   />
                 </FormControl>
-              </div>
-              <div>
-                <FormControlLabel
-                  control={(
-                    <Field name="checkbox" component={CheckboxRedux} required className={classes.agree} />
-                  )}
-                  label="Agree with"
-                />
-                <a href="#" className={classes.link}>Terms &amp; Condition</a>
-              </div>
-              <div className={classes.btnArea}>
-                <Button variant="contained" color="primary" type="submit">
-                  Continue
-                  <ArrowForward className={classNames(classes.rightIcon, classes.iconSmall)} disabled={submitting || pristine} />
-                </Button>
-              </div>
-            </form>
-          </section>
-        )}
-        {tab === 1 && (
-          <section className={classes.socmedFull}>
-            <Button fullWidth variant="outlined" size="large" className={classes.redBtn} type="button">
-              <AllInclusive className={classNames(classes.leftIcon, classes.iconSmall)} />
-              Socmed 1
-            </Button>
-            <Button fullWidth variant="outlined" size="large" className={classes.blueBtn} type="button">
-              <Brightness5 className={classNames(classes.leftIcon, classes.iconSmall)} />
-              Socmed 2
-            </Button>
-            <Button fullWidth variant="outlined" size="large" className={classes.cyanBtn} type="button">
-              <People className={classNames(classes.leftIcon, classes.iconSmall)} />
-              Socmed 3
-            </Button>
-          </section>
-        )}
+              </Grid>
+              <Grid item xs={6} className={classes.formControl}>
+                <FormControl className={classes.formControl}>
+                  <Field
+                    type="date"
+                    name="phoneNumber"
+                    component={TextFieldRedux}
+                    placeholder="Date Of Birth"
+                    label="Date Of Birth"
+                    required
+                    className={classes.field}
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                  />
+                </FormControl>
+              </Grid>
+              <Grid item xs={12}>
+                <FormControl className={classes.formControl}>
+                  <Field
+                    type="number"
+                    name="numberOfCards"
+                    component={TextFieldRedux}
+                    placeholder="Number of cards"
+                    label="Number of cards"
+                    required
+                    className={classes.field}
+                  />
+                </FormControl>
+              </Grid>
+              <Grid item xs={12}>
+                <FormControl className={classes.formControl}>
+                  <Field
+                    type="text"
+                    name="address"
+                    component={TextFieldRedux}
+                    placeholder="Address"
+                    label="Street Address"
+                    required
+                    className={classes.field}
+                  />
+                </FormControl>
+              </Grid>
+              <Grid item xs={3}>
+                <FormControl className={classes.formControl}>
+                  <Field
+                    name="city"
+                    component={TextFieldRedux}
+                    placeholder="City"
+                    label="City"
+                    required
+                    className={classes.field}
+                  />
+                </FormControl>
+              </Grid>
+              <Grid item xs={3}>
+                <FormControl className={classes.formControl}>
+                  <Field
+                    name="state"
+                    component={TextFieldRedux}
+                    placeholder="State"
+                    label="State  "
+                    required
+                    className={classes.field}
+                  />
+                </FormControl>
+              </Grid>
+              <Grid item xs={6}>
+                <FormControl className={classes.formControl}>
+                  <Field
+                    name="zip"
+                    component={TextFieldRedux}
+                    placeholder="Zip"
+                    label="Zip  "
+                    required
+                    className={classes.field}
+                  />
+                </FormControl>
+              </Grid>
+              <Grid item xs={6}>
+                <FormControl className={classes.formControl}>
+                  <Field
+                    type="text"
+                    name="referredBy"
+                    component={TextFieldRedux}
+                    placeholder="Referred by"
+                    label="Referred by"
+                    className={classes.field}
+                  />
+                </FormControl>
+              </Grid>
+              <Grid item xs={6}>
+                <FormControl className={classes.formControl}>
+                  <Field
+                    type="text"
+                    name="groupAffiliations"
+                    component={TextFieldRedux}
+                    placeholder="Group affiliations"
+                    label="Group affiliations"
+                    className={classes.field}
+                  />
+                </FormControl>
+              </Grid>
+            </Grid>
+            {type === "C" && (
+              <>
+                <Grid container spacing={2}>
+                  <Grid item xs={6}>
+                    <FormControl className={classes.formControl}>
+                      <Field
+                        name="typeOfBusiness"
+                        component={TextFieldRedux}
+                        placeholder="Type of Business"
+                        label="Type of Business"
+                        required
+                        className={classes.field}
+                      />
+                    </FormControl>
+                  </Grid>
+                  <Grid item xs={6}>
+                    <FormControl className={classes.formControl}>
+                      <Field
+                        name="numberOfEmployees"
+                        component={TextFieldRedux}
+                        placeholder="Number of employees"
+                        label="Number of employees"
+                        required
+                        className={classes.field}
+                      />
+                    </FormControl>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <FormControl className={classes.formControl}>
+                      <Field
+                        type="text"
+                        name="locations"
+                        component={TextFieldRedux}
+                        placeholder="Number of locations"
+                        label="Number of locations"
+                        required
+                        className={classes.field}
+                      />
+                    </FormControl>
+                  </Grid>
+                </Grid>
+              </>
+            )}
+            <div>
+              <FormControlLabel
+                style={{ marginRight: "5px" }}
+                control={
+                  <Field
+                    name="tnc"
+                    component={CheckboxRedux}
+                    required
+                    className={classes.agree}
+                  />
+                }
+                label="I agree with"
+              />
+              <a href="#" className={classes.link}>
+                Terms &amp; Condition
+              </a>
+            </div>
+            <div className={classes.btnArea}>
+              <Button variant="contained" color="primary" type="submit">
+                Submit
+              </Button>
+              <Button
+                size="small"
+                className={classes.buttonLink}
+                component={LinkBtn}
+                to="/login"
+              >
+                Already Have Account? Go to Login &nbsp;
+                <Icon className={classes.icon}>arrow_forward</Icon>
+              </Button>
+            </div>
+          </form>
+        </section>
       </Paper>
     </Fragment>
   );
@@ -196,16 +368,14 @@ RegisterForm.propTypes = {
 };
 
 const RegisterFormReduxed = reduxForm({
-  form: 'immutableExample',
+  form: "immutableExample",
   enableReinitialize: true,
 })(RegisterForm);
 
-const reducer = 'ui';
-const RegisterFormMapped = connect(
-  state => ({
-    force: state,
-    deco: state.getIn([reducer, 'decoration'])
-  }),
-)(RegisterFormReduxed);
+const reducer = "ui";
+const RegisterFormMapped = connect((state) => ({
+  force: state,
+  deco: state.getIn([reducer, "decoration"]),
+}))(RegisterFormReduxed);
 
 export default withStyles(styles)(RegisterFormMapped);
