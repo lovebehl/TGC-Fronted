@@ -1,42 +1,13 @@
 import React, { useContext } from 'react';
 import { PropTypes } from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
-import { ThemeContext } from './ThemeWrapper';
-import Dashboard from '../Templates/Dashboard';
 import {
   MerchantDashboard,
-  PersonalDashboard, CrmDashboard, CryptoDashboard,
-  Infographics, MiniApps, Analytics,
-  InfoUpdates, Status,
-  Parent, AppLayout, Responsive, Grid,
-  SimpleTable, AdvancedTable, TablePlayground,
-  TreeTable, EditableCell,
-  ReduxForm, DateTimePicker, CheckboxRadio,
-  Switches, Selectbox, Rating,
-  SliderRange, Buttons, DialButton,
-  ToggleButton, Textbox,
-  Autocomplete, Upload, TextEditor,
-  Avatars, Accordion, Badges,
-  List, PopoverTooltip, Snackbar,
-  Typography, Tabs, Cards,
-  ImageGrid, Progress, DialogModal,
-  Steppers, Paginations, DrawerMenu,
-  Breadcrumbs, Icons, IonIcons,
-  SliderCarousel, Tags, Dividers,
-  LineCharts, BarCharts, AreaCharts,
-  PieCharts, RadarCharts, ScatterCharts, CompossedCharts,
-  DoughnutCharts, BarDirection, LineScatterChart,
-  AreaFilledChart, RadarPolarCharts,
-  Contact, Chat, Email, TaskBoard,
-  Ecommerce, Timeline, Calendar,
-  ProductPage, Invoice, Profile, BlankPage,
-  Photos, Pricing, CheckoutPage,
-  Error, Settings, HelpSupport,
-  MapMarker, MapDirection, SearchMap,
-  TrafficIndicator, StreetViewMap, NotFound, StaffDashboard, MemberDashboard
+  NotFound, StaffDashboard,
+  MemberDashboard, TGCMarketplace,
+  ProfileSetting, UserProfile, BuyGold, SendMoney
 } from '../pageListAsync';
 import MerchantLayout from '../Templates/MerchantLayout';
-
 function Application(props) {
   const { history } = props;
   // const changeMode = useContext(ThemeContext);
@@ -48,6 +19,16 @@ function Application(props) {
         <Route path="/app/merchant-dashboard" component={MerchantDashboard} />
         <Route path="/app/member-dashboard" component={MemberDashboard} />
         <Route path="/app/staff-dashboard" component={StaffDashboard} />
+        <Route path="/app/tgc-marketplace" component={TGCMarketplace} />
+
+        {/* member Profile and Settings */}
+        <Route
+          path="/app/member/profile-setting"
+          component={ProfileSetting}
+        />
+        <Route path="/app/member/user-profile" component={UserProfile} />
+        <Route path="/app/member/buy-gold" component={BuyGold} />
+        <Route path="/app/member/send-money" component={SendMoney} />
         {/* Default */}
         <Route component={NotFound} />
       </Switch>
