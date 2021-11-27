@@ -37,20 +37,20 @@ function LeftSidebarLayout(props) {
         toggleDrawerOpen={toggleDrawer}
         margin={sidebarOpen}
         gradient={gradient}
-        position="left-sidebar"
+        position="top-sidebar"
         changeMode={changeMode}
         mode={mode}
         title={place}
         history={history}
         openGuide={handleOpenGuide}
       />
-      <Sidebar
-        open={sidebarOpen}
+      {/* <Sidebar
+        open={true}
         toggleDrawerOpen={toggleDrawer}
         loadTransition={loadTransition}
         dataMenu={dataMenu}
         leftSidebar
-      />
+      /> */}
       <main className={classNames(classes.content, !sidebarOpen ? classes.contentPaddingLeft : '')} id="mainContent">
         <Decoration
           mode={mode}

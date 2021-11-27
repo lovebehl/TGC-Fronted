@@ -6,13 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Hidden from '@material-ui/core/Hidden';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import SearchIcon from '@material-ui/icons/Search';
-import Fab from '@material-ui/core/Fab';
-import Tooltip from '@material-ui/core/Tooltip';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import UserMenu from './UserMenu';
-import SearchUi from '../Search/SearchUi';
 import styles from './header-jss';
 
 const elem = document.documentElement;
@@ -108,68 +102,35 @@ function Header(props) {
 
   return (
     <AppBar
-      className={
-        classNames(
-          classes.appBar,
-          classes.floatingBar,
-          margin && classes.appBarShift,
-          setMargin(position),
-          turnDarker && classes.darker,
-          gradient ? classes.gradientBg : classes.solidBg
-        )
-      }
+      className={classNames(
+        classes.appBar,
+        classes.floatingBar,
+        margin && classes.appBarShift,
+        setMargin(position),
+        turnDarker && classes.darker,
+        classes.gradientBg
+      )}
     >
-      <Toolbar disableGutters={!open}>
-        <Fab
-          size="small"
-          className={classes.menuButton}
-          aria-label="Menu"
-          onClick={toggleDrawerOpen}
-        >
-          <MenuIcon />
-        </Fab>
+      <Toolbar>
+        <div>TGC Market Place</div>
         <Hidden smDown>
           <div className={classes.headerProperties}>
-            <div className={classNames(classes.headerAction, showTitle && classes.fadeOut)}>
-              {fullScreen ? (
-                <Tooltip title="Exit Full Screen" placement="bottom">
-                  <IconButton className={classes.button} onClick={closeFullScreen}>
-                    <i className="ion-ios-qr-scanner-outline" />
-                  </IconButton>
-                </Tooltip>
-              ) : (
-                <Tooltip title="Full Screen" placement="bottom">
-                  <IconButton className={classes.button} onClick={openFullScreen}>
-                    <i className="ion-ios-qr-scanner-outline" />
-                  </IconButton>
-                </Tooltip>
+            <div
+              className={classNames(
+                classes.headerAction,
+                showTitle && classes.fadeOut
               )}
-              <Tooltip title="Turn Dark/Light" placement="bottom">
-                <IconButton className={classes.button} onClick={() => turnMode(mode)}>
-                  <i className="ion-ios-bulb-outline" />
-                </IconButton>
-              </Tooltip>
-              <Tooltip title="Show Guide" placement="bottom">
-                <IconButton className={classes.button} onClick={openGuide}>
-                  <i className="ion-ios-help-circle-outline" />
-                </IconButton>
-              </Tooltip>
-            </div>
-            <Typography component="h2" className={classNames(classes.headerTitle, showTitle && classes.show)}>
+            />
+            <Typography
+              component="h2"
+              className={classNames(
+                classes.headerTitle,
+                showTitle && classes.show
+              )}
+            >
               {title}
             </Typography>
           </div>
-        </Hidden>
-        <div className={classes.searchWrapper}>
-          <div className={classNames(classes.wrapper, classes.light)}>
-            <div className={classes.search}>
-              <SearchIcon />
-            </div>
-            <SearchUi history={history} />
-          </div>
-        </div>
-        <Hidden xsDown>
-          <span className={classes.separatorV} />
         </Hidden>
         <UserMenu />
       </Toolbar>

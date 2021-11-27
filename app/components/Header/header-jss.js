@@ -92,19 +92,10 @@ const styles = theme => ({
   leftBig: {},
   right: {},
   appBarShift: {
-    transition: theme.transitions.create(['width', 'margin', 'background'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
     '&$left': {
-      '& $menuButton': {
-        [theme.breakpoints.up('lg')]: {
-          marginLeft: -20
-        }
-      },
       [theme.breakpoints.up('lg')]: {
         marginLeft: drawerWidth,
-        width: `calc(100% - ${drawerWidth}px)`,
+        width: '95%',
       },
     },
     '&$leftBig': {
