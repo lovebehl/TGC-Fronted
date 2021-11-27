@@ -138,7 +138,8 @@ const styles = theme => ({
     height: '100%',
     position: 'relative',
     '& > div': {
-      willChange: 'inherit !important' // hack for floating form issue when expaded
+      willChange: 'inherit !important', // hack for floating form issue when expaded
+      marginLeft: 70,
     },
     '&$sidebarLayout': {
       paddingTop: theme.spacing(8),
@@ -147,6 +148,7 @@ const styles = theme => ({
       width: '100%',
       marginTop: theme.spacing(3),
     },
+    width: '95%',
   },
   preloader: {
     position: 'absolute',

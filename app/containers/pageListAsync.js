@@ -3,7 +3,6 @@
 import React from "react";
 import Loading from "dan-components/Loading";
 import loadable from "../utils/loadable";
-
 // Landing Page
 export const HomePageScreen = loadable(
   () => import("./LandingPage/HomePageScreen"),
@@ -11,9 +10,24 @@ export const HomePageScreen = loadable(
     fallback: <Loading />,
   }
 );
+   //Landing Page   
 export const HomePage = loadable(() => import("./LandingPage/HomePage"), {
   fallback: <Loading />,
 });
+
+// Home Dashboard
+export const MerchantDashboard = loadable(() => import("./MerchantDashboard"), {
+  fallback: <Loading />,
+});
+
+export const MemberDashboard = loadable(() => import("./MemberDashboard"), {
+  fallback: <Loading />,
+}); 
+
+export const StaffDashboard = loadable(() => import("./StaffDashboard"), {
+  fallback: <Loading />,
+}); 
+
 export const SliderPage = loadable(() => import("./LandingPage/SliderPage"), {
   fallback: <Loading />,
 });
