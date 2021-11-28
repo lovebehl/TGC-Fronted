@@ -2,13 +2,9 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import brand from "dan-api/dummy/brand";
 import { PapperBlock } from "dan-components";
-import AdvancedTable from "../Tables/demos/AdvFilter";
 import Ecommerce from "../SampleApps/Ecommerce";
-import TextField from "@material-ui/core/TextField";
-import { Button, FormControl, Grid, InputLabel, MenuItem, Select } from "@material-ui/core";
-import CurrencyWidget from "../../components/MemberComponents/Components/CurrencyWidget";
 
-function MemberDashboard() {
+function TGCMarketplace() {
   const title = brand.name + " - Blank Page";
   const description = brand.desc;
   return (
@@ -21,14 +17,11 @@ function MemberDashboard() {
         <meta property="twitter:title" content={title} />
         <meta property="twitter:description" content={description} />
       </Helmet>
-      <PapperBlock title="TGC Currency and Gold Once">
-        <CurrencyWidget />
-      </PapperBlock>
-      <PapperBlock title="Transcations" desc="">
-        <AdvancedTable />
+      <PapperBlock title="TGC Marketplace">
+        <Ecommerce />
       </PapperBlock>
     </div>
   );
 }
 
-export default MemberDashboard;
+export default TGCMarketplace;

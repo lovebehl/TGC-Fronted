@@ -148,7 +148,7 @@ const styles = theme => ({
       width: '100%',
       marginTop: theme.spacing(3),
     },
-    width: '95%',
+    width: '100%',
   },
   preloader: {
     position: 'absolute',

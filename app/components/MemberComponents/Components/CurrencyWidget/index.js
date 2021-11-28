@@ -1,17 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import OndemandVideo from '@material-ui/icons/OndemandVideo';
-import SupervisorAccount from '@material-ui/icons/SupervisorAccount';
-import CollectionsBookmark from '@material-ui/icons/CollectionsBookmark';
-import Edit from '@material-ui/icons/Edit';
-import colorfull from 'dan-api/palette/colorfull';
-import CounterWidget from '../Counter/CounterWidget';
-import styles from './widget-jss';
+import React from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+import OndemandVideo from "@material-ui/icons/OndemandVideo";
+import SupervisorAccount from "@material-ui/icons/SupervisorAccount";
+import colorfull from "dan-api/palette/colorfull";
+import CounterWidget from "../../../Counter/CounterWidget";
+import styles from "./widget-jss";
 
-
-function CounterIconWidget(props) {
+function CurrencyWidget(props) {
   const { classes } = props;
   return (
     <div className={classes.rootCounterFull}>
@@ -43,8 +40,8 @@ function CounterIconWidget(props) {
   );
 }
 
-CounterIconWidget.propTypes = {
+CurrencyWidget.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(CounterIconWidget);
+export default withStyles(styles)(CurrencyWidget);

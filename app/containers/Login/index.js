@@ -25,6 +25,7 @@ function Login(props) {
   const { classes } = props;
 
   const submitLogin = async (values) => {
+    
     try {
       var nodes = values._root.entries;
       var data = {};
@@ -33,17 +34,17 @@ function Login(props) {
       });
       const response = await loginUser(data);
       if (response) {
-        if (response.STATUS === ENUM.ERROR) {
+        if (response.CODE === 401) {
           setmessage(response.DATA.message);
-          setstatus(ENUM.error);
+          setstatus("error");
           setopen(true);
         } else if (response === "") {
           setmessage(Constants.someErrorOcurred);
-          setstatus(ENUM.error);
+          setstatus("error");
           setopen(true);
-        } else if (response.STATUS === ENUM.SUCCESS) {
+        } else if (response.CODE === 200) {
                  setmessage(Constants.loggedSucessfully);
-                 setstatus(ENUM.statusSucess);
+                 setstatus("success");
                  setopen(true);
                  localStorage.setItem(
                    "tgc-qxzsewa-access-token",
@@ -54,11 +55,13 @@ function Login(props) {
                    data.email
                  );
                  setTimeout(() => {
-                   window.location.href = "/app";
+                   window.location.href =
+                     "/app/member-dashboard";
                  }, 1000);
                }
       }
     } catch (error) {
+      console.log(error, "user error");
       showLog(Constants.submitLoginError, error);
     }
   };
