@@ -26,7 +26,7 @@ function MarketplaceOrders() {
         <meta property="twitter:description" content={description} />
       </Helmet>
       <PapperBlock title="Buy Gold" desc="">
-        Buy Gold
+        Market place Orders
       </PapperBlock>
     </div>
   );
