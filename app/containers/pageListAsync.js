@@ -60,7 +60,25 @@ export const SendMoney = loadable(
          {
            fallback: <Loading />,
          }
-       );   
+       );  
+export const TranscationDetails = loadable(
+         () => import("./MemberDashboard/TranscationDetails"),
+         {
+           fallback: <Loading />,
+         }
+       );
+export const MarketplaceOrders = loadable(
+         () => import("./MemberDashboard/MarketplaceOrders"),
+         {
+           fallback: <Loading />,
+         }
+       );
+export const PostProduct = loadable(
+         () => import("./MemberDashboard/PostProduct"),
+         {
+           fallback: <Loading />,
+         }
+       );     
 export const SliderPage = loadable(() => import("./LandingPage/SliderPage"), {
   fallback: <Loading />,
 });
