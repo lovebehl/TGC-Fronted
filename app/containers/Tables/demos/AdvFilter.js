@@ -131,7 +131,7 @@ function AdvFilter(props) {
   return (
     <div className={classes.table}>
       <MUIDataTable
-        title="Employee list"
+        title="Transaction History"
         data={data}
         columns={columns}
         options={options}

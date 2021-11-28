@@ -112,7 +112,6 @@ function Header(props) {
       )}
     >
       <Toolbar>
-        <div>TGC Market Place</div>
         <Hidden smDown>
           <div className={classes.headerProperties}>
             <div

@@ -28,6 +28,39 @@ export const StaffDashboard = loadable(() => import("./StaffDashboard"), {
   fallback: <Loading />,
 }); 
 
+//TGCMarketplace
+export const TGCMarketplace = loadable(
+         () => import("./TGCMarketplace"),
+         {
+           fallback: <Loading />,
+         }
+       ); 
+// Profile Settings
+export const ProfileSetting = loadable(
+         () => import("./MemberDashboard/ProfileSetting"),
+         {
+           fallback: <Loading />,
+         }
+       );
+
+export const UserProfile = loadable(
+         () => import("./MemberDashboard/UserProfile"),
+         {
+           fallback: <Loading />,
+         }
+       );
+export const BuyGold = loadable(
+         () => import("./MemberDashboard/BuyGold"),
+         {
+           fallback: <Loading />,
+         }
+       );    
+export const SendMoney = loadable(
+         () => import("./MemberDashboard/SendMoney"),
+         {
+           fallback: <Loading />,
+         }
+       );   
 export const SliderPage = loadable(() => import("./LandingPage/SliderPage"), {
   fallback: <Loading />,
 });
@@ -390,9 +423,9 @@ export const Maintenance = loadable(() => import("./Pages/Maintenance"), {
 export const Parent = loadable(() => import("./Parent"), {
   fallback: <Loading />,
 });
-export const Settings = loadable(() => import("./Pages/Settings"), {
-  fallback: <Loading />,
-});
+// export const Settings = loadable(() => import("./Pages/Settings"), {
+//   fallback: <Loading />,
+// });
 export const HelpSupport = loadable(() => import("./Pages/HelpSupport"), {
   fallback: <Loading />,
 });

@@ -23,7 +23,7 @@ const styles = theme => ({
   container: {
     padding: `0 ${theme.spacing(2)}px`,
     position: 'relative',
-    margin: '0 auto',
+    marginLeft: 95,
     [theme.breakpoints.up('lg')]: {
       width: 1140,
       padding: 0,
