@@ -6,6 +6,7 @@ import AdvancedTable from "../Tables/demos/AdvFilter";
 import Ecommerce from "../SampleApps/Ecommerce";
 import TextField from "@material-ui/core/TextField";
 import { Button, FormControl, Grid, InputLabel, MenuItem, Select } from "@material-ui/core";
+import CurrencyWidget from "../../components/MemberComponents/Components/CurrencyWidget";
 
 function MemberDashboard() {
   const title = brand.name + " - Blank Page";
@@ -20,6 +21,9 @@ function MemberDashboard() {
         <meta property="twitter:title" content={title} />
         <meta property="twitter:description" content={description} />
       </Helmet>
+      <PapperBlock title="TGC Currency and Gold Once">
+        <CurrencyWidget />
+      </PapperBlock>
       <PapperBlock title="Transcations" desc="">
         <AdvancedTable />
       </PapperBlock>
