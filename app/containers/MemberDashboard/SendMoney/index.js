@@ -25,7 +25,7 @@ function SendMoney() {
         <meta property="twitter:title" content={title} />
         <meta property="twitter:description" content={description} />
       </Helmet>
-      <PapperBlock title="Buy Gold" desc="">
+      <PapperBlock title="Send Money" desc="">
         <Grid
           container
           spacing={4}
