@@ -11,6 +11,8 @@ import {
   MenuItem,
   Select,
 } from "@material-ui/core";
+import UserProfile from "../../Pages/UserProfile";
+import MemberUserProfile from "../../../components/MemberComponents/Components/MemberUserProfile";
 
 function ProfileSetting() {
   const title = brand.name + " - Blank Page";
@@ -26,7 +28,7 @@ function ProfileSetting() {
         <meta property="twitter:description" content={description} />
       </Helmet>
       <PapperBlock title="Profile Setting" desc="">
-        Profile Setting
+        <MemberUserProfile />
       </PapperBlock>
     </div>
   );
