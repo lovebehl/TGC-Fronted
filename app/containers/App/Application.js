@@ -5,7 +5,8 @@ import {
   MerchantDashboard,
   NotFound, StaffDashboard,
   MemberDashboard, TGCMarketplace,
-  ProfileSetting, UserProfile, BuyGold, SendMoney, PostProduct, TranscationDetails, MarketplaceOrders
+  ProfileSetting, UserProfile, BuyGold, SendMoney,
+  PostProduct, TranscationDetails, MarketplaceOrders
 } from '../pageListAsync';
 import MerchantLayout from '../Templates/MerchantLayout';
 function Application(props) {

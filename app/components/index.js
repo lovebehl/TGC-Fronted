@@ -145,3 +145,6 @@ export AddBoard from './TaskBoard/AddBoard';
 // Error
 export ErrorWrap from './Error/ErrorWrap';
 // Theme an Layout Settings
+
+
+export MemberUserProfile from './MemberComponents/Components/MemberUserProfile';

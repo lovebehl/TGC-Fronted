@@ -5,6 +5,7 @@ module.exports = {
   email: '/app/pages/email',
   profile: '/app/pages/user-profile',
   calendar: '/app/pages/calendar',
+  memberUserProfile: '/app/member/profile-setting',
   twitter: '#',
   github: '#',
   pinterest: '#',

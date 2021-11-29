@@ -149,8 +149,8 @@ function UserMenu(props) {
         open={openMenu === 'user-setting'}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose} component={Link} to={link.profile}>My Profile</MenuItem>
-        <MenuItem onClick={handleClose} component={Link} to={link.calendar}>My Calendar</MenuItem>
+        {console.log(link, 'Link to Profile -->')}
+        <MenuItem onClick={handleClose} component={Link} to={link.memberUserProfile}>My Profile</MenuItem>
         <MenuItem onClick={handleClose} component={Link} to={link.email}>
           My Inbox
           <ListItemIcon>
