@@ -150,13 +150,7 @@ function UserMenu(props) {
         onClose={handleClose}
       >
         {console.log(link, 'Link to Profile -->')}
-        <MenuItem onClick={handleClose} component={Link} to={link.memberUserProfile}>My Profile</MenuItem>
-        <MenuItem onClick={handleClose} component={Link} to={link.email}>
-          My Inbox
-          <ListItemIcon>
-            <Badge className={classNames(classes.badge, classes.badgeMenu)} badgeContent={2} color="secondary" />
-          </ListItemIcon>
-        </MenuItem>
+        <MenuItem onClick={handleClose} component={Link} to={link.memberUserProfile}>Account Settings</MenuItem>
         <Divider />
         <MenuItem onClick={handleClose} component={Link} to="/">
           <ListItemIcon>
