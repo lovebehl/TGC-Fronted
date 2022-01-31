@@ -16,15 +16,18 @@ export const HomePage = loadable(() => import("./LandingPage/HomePage"), {
 });
 
 // Home Dashboard
-export const MerchantDashboard = loadable(() => import("./MerchantDashboard"), {
+export const MerchantDashboard = loadable(() => import("./Dashboard/MerchantDashboard"), {
   fallback: <Loading />,
 });
 
-export const MemberDashboard = loadable(() => import("./MemberDashboard"), {
-  fallback: <Loading />,
-}); 
+export const MemberDashboard = loadable(
+         () => import("./Dashboard/MemberDashboard"),
+         {
+           fallback: <Loading />,
+         }
+       ); 
 
-export const StaffDashboard = loadable(() => import("./StaffDashboard"), {
+export const StaffDashboard = loadable(() => import("./Dashboard/StaffDashboard"), {
   fallback: <Loading />,
 }); 
 
@@ -37,44 +40,44 @@ export const TGCMarketplace = loadable(
        ); 
 // Profile Settings
 export const ProfileSetting = loadable(
-         () => import("./MemberDashboard/ProfileSetting"),
+         () => import("./Dashboard/MemberDashboard/ProfileSetting"),
          {
            fallback: <Loading />,
          }
        );
 
 export const UserProfile = loadable(
-         () => import("./MemberDashboard/UserProfile"),
+         () => import("./Dashboard/MemberDashboard/UserProfile"),
          {
            fallback: <Loading />,
          }
        );
 export const BuyGold = loadable(
-         () => import("./MemberDashboard/BuyGold"),
+         () => import("./Dashboard/MemberDashboard/BuyGold"),
          {
            fallback: <Loading />,
          }
        );    
 export const SendMoney = loadable(
-         () => import("./MemberDashboard/SendMoney"),
+         () => import("./Dashboard/MemberDashboard/SendMoney"),
          {
            fallback: <Loading />,
          }
        );  
 export const TranscationDetails = loadable(
-         () => import("./MemberDashboard/TranscationDetails"),
+         () => import("./Dashboard/MemberDashboard/TranscationDetails"),
          {
            fallback: <Loading />,
          }
        );
 export const MarketplaceOrders = loadable(
-         () => import("./MemberDashboard/MarketplaceOrders"),
+         () => import("./Dashboard/MemberDashboard/MarketplaceOrders"),
          {
            fallback: <Loading />,
          }
        );
 export const PostProduct = loadable(
-         () => import("./MemberDashboard/PostProduct"),
+         () => import("./Dashboard/MemberDashboard/PostProduct"),
          {
            fallback: <Loading />,
          }

@@ -149,7 +149,6 @@ function UserMenu(props) {
         open={openMenu === 'user-setting'}
         onClose={handleClose}
       >
-        {console.log(link, 'Link to Profile -->')}
         <MenuItem onClick={handleClose} component={Link} to={link.memberUserProfile}>Account Settings</MenuItem>
         <Divider />
         <MenuItem onClick={handleClose} component={Link} to="/">

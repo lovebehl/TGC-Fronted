@@ -8,7 +8,7 @@ import { Header, Sidebar, BreadCrumb } from "dan-components";
 import dataMenu from "dan-api/ui/menu";
 import Decoration from "../Decoration";
 import styles from "../appStyles-jss";
-import MemberHeader from "../../../components/LandingPage/MemberHeader";
+import DashboardHeader from "../../../components/LandingPage/DashboardHeader";
 function AppLayout(props) {
   const {
     classes,
@@ -29,7 +29,7 @@ function AppLayout(props) {
   } = props;
   return (
     <Fragment>
-      <MemberHeader />
+      <DashboardHeader />
       {/* <Header
         toggleDrawerOpen={toggleDrawer}
         margin={sidebarOpen}
@@ -41,10 +41,7 @@ function AppLayout(props) {
         history={history}
         openGuide={handleOpenGuide}
       /> */}
-      <main
-        className={classNames(classes.content)}
-        id="mainContent"
-      >
+      <main className={classNames(classes.content)} id="mainContent">
         <Decoration
           mode={mode}
           gradient={gradient}

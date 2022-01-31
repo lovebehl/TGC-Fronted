@@ -19,6 +19,8 @@ import Constants from "../../constants/contants";
 import UserMenu from "../Header/UserMenu";
 import { useHistory } from "react-router-dom";
 
+const dashboardType = 'MERCHANT' // 'MEMBER' // 'STAFF' // 'ADMIN' //
+
 let counter = 0;
 function createData(name, url) {
   counter += 1;
@@ -29,14 +31,13 @@ function createData(name, url) {
   };
 }
 
-function MemberHeader(props) {
+function DashboardHeader(props) {
   const history = useHistory();
   const { classes, turnDarker } = props;
   const [open, setOpen] = useState(false);
 
   const reducer = "ui";
   const gradient = useSelector((state) => state.getIn([reducer, "gradient"]));
-
   const menuList = [
     createData("Home", "#feature"),
     createData("Send Money", "#showcase"),
@@ -147,9 +148,9 @@ function MemberHeader(props) {
   );
 }
 
-MemberHeader.propTypes = {
+DashboardHeader.propTypes = {
   classes: PropTypes.object.isRequired,
   turnDarker: PropTypes.bool.isRequired,
 };
 
-export default withStyles(styles)(MemberHeader);
+export default withStyles(styles)(DashboardHeader);

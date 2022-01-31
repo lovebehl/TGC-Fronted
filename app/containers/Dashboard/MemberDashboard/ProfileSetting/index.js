@@ -3,16 +3,7 @@ import { Helmet } from "react-helmet";
 import brand from "dan-api/dummy/brand";
 import { PapperBlock } from "dan-components";
 import TextField from "@material-ui/core/TextField";
-import {
-  Button,
-  FormControl,
-  Grid,
-  InputLabel,
-  MenuItem,
-  Select,
-} from "@material-ui/core";
-import UserProfile from "../../Pages/UserProfile";
-import MemberUserProfile from "../../../components/MemberComponents/Components/MemberUserProfile";
+import MemberUserProfile from "../../../../components/MemberComponents/Components/MemberUserProfile";
 
 function ProfileSetting() {
   const title = brand.name + " - Blank Page";

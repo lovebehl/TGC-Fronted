@@ -10,7 +10,8 @@ import ThemeWrapper from './ThemeWrapper';
 import Register from '../Pages/Users/Register';
 window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true;
 
-function App() {
+function AppIn() {
+  const token = localStorage.getItem('tgc-qxzsewa-access-token');
   return (
     <ThemeWrapper>
       <Switch>
@@ -23,6 +24,11 @@ function App() {
       </Switch>
     </ThemeWrapper>
   );
+}
+
+function App() {
+  const token = localStorage.getItem("tgc-qxzsewa-access-token");
+  return <AppIn />;
 }
 
 export default App;
