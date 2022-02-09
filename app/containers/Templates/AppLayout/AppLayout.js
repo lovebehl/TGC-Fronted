@@ -8,7 +8,7 @@ import { Header, Sidebar, BreadCrumb } from "dan-components";
 import dataMenu from "dan-api/ui/menu";
 import Decoration from "../Decoration";
 import styles from "../appStyles-jss";
-import DashboardHeader from "../../../components/LandingPage/DashboardHeader";
+import HeaderMenu from "../../../components/HeaderMenu/MemberHeaderMenu";
 function AppLayout(props) {
   const {
     classes,
@@ -29,7 +29,7 @@ function AppLayout(props) {
   } = props;
   return (
     <Fragment>
-      <DashboardHeader />
+      <HeaderMenu />
       {/* <Header
         toggleDrawerOpen={toggleDrawer}
         margin={sidebarOpen}

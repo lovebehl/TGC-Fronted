@@ -13,13 +13,13 @@ import classNames from "classnames";
 import AppBar from "@material-ui/core/AppBar";
 import logo from "dan-images/logo.png";
 import brand from "dan-api/dummy/brand";
-import SideNavMobile from "./SideNavMobile";
-import styles from "./landingStyle-jss";
+import SideNavMobile from "../LandingPage/SideNavMobile";
+import styles from "../LandingPage/landingStyle-jss";
 import Constants from "../../constants/contants";
 import UserMenu from "../Header/UserMenu";
 import { useHistory } from "react-router-dom";
 
-const dashboardType = 'MERCHANT' // 'MEMBER' // 'STAFF' // 'ADMIN' //
+const dashboardType = "MERCHANT"; // 'MEMBER' // 'STAFF' // 'ADMIN' //
 
 let counter = 0;
 function createData(name, url) {
@@ -31,7 +31,7 @@ function createData(name, url) {
   };
 }
 
-function DashboardHeader(props) {
+function StaffHeaderMenu(props) {
   const history = useHistory();
   const { classes, turnDarker } = props;
   const [open, setOpen] = useState(false);
@@ -57,7 +57,7 @@ function DashboardHeader(props) {
 
   const handleHome = () => {
     history.push("/app/member-dashboard");
-  }
+  };
 
   const handleShop = () => {
     history.push("/app/tgc-marketplace");
@@ -80,10 +80,7 @@ function DashboardHeader(props) {
           open={open}
           anchor="left"
         >
-          <SideNavMobile
-            menuList={menuList}
-            closeDrawer={toggleDrawerClose}
-          />
+          <SideNavMobile menuList={menuList} closeDrawer={toggleDrawerClose} />
         </SwipeableDrawer>
       </Hidden>
       <AppBar
@@ -148,9 +145,9 @@ function DashboardHeader(props) {
   );
 }
 
-DashboardHeader.propTypes = {
+StaffHeaderMenu.propTypes = {
   classes: PropTypes.object.isRequired,
   turnDarker: PropTypes.bool.isRequired,
 };
 
-export default withStyles(styles)(DashboardHeader);
+export default withStyles(styles)(StaffHeaderMenu);
