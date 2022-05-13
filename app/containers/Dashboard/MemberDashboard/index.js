@@ -5,7 +5,7 @@ import { PapperBlock } from "dan-components";
 import AdvancedTable from "../../Tables/demos/AdvFilter";
 import CurrencyWidget from "../../../components/MemberComponents/Components/CurrencyWidget";
 
-function MemberDashboard() {
+const MemberDashboard = () => {
   const title = brand.name + " - Blank Page";
   const description = brand.desc;
   return (
@@ -21,8 +21,8 @@ function MemberDashboard() {
       <PapperBlock title="TGC Currency and Gold Once">
         <CurrencyWidget />
       </PapperBlock>
-      <PapperBlock title="Transcations" desc="">
-        <AdvancedTable />
+      <PapperBlock title="Transcations Details" desc="">
+        <AdvancedTable title={"Transcation History"} />
       </PapperBlock>
     </div>
   );

@@ -16,9 +16,6 @@ export const HomePage = loadable(() => import("./LandingPage/HomePage"), {
 });
 
 // Home Dashboard
-export const MerchantDashboard = loadable(() => import("./Dashboard/MerchantDashboard"), {
-  fallback: <Loading />,
-});
 
 export const MemberDashboard = loadable(
          () => import("./Dashboard/MemberDashboard"),
@@ -405,25 +402,6 @@ export const Invoice = loadable(() => import("./SampleApps/Invoice"), {
   fallback: <Loading />,
 });
 
-// Maps
-export const MapMarker = loadable(() => import("./Maps/MapMarker"), {
-  fallback: <Loading />,
-});
-export const MapDirection = loadable(() => import("./Maps/MapDirection"), {
-  fallback: <Loading />,
-});
-export const SearchMap = loadable(() => import("./Maps/SearchMap"), {
-  fallback: <Loading />,
-});
-export const TrafficIndicator = loadable(
-  () => import("./Maps/TrafficIndicator"),
-  {
-    fallback: <Loading />,
-  }
-);
-export const StreetViewMap = loadable(() => import("./Maps/StreetViewMap"), {
-  fallback: <Loading />,
-});
 
 // Other
 export const NotFound = loadable(() => import("./NotFound/NotFound"), {

@@ -16,12 +16,10 @@ function Application(props) {
     <MerchantLayout history={history}>
       <Switch>
         {/* Home */}
-        <Route path="/app/merchant-dashboard" component={MerchantDashboard} />
         <Route path="/app/member-dashboard" component={MemberDashboard} />
         <Route path="/app/staff-dashboard" component={StaffDashboard} />
         <Route path="/app/tgc-marketplace" component={TGCMarketplace} />
 
-        {/* member Profile and Settings */}
         <Route
           path="/app/member/profile-setting"
           component={ProfileSetting}

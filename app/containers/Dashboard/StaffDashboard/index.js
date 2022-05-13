@@ -2,6 +2,8 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import brand from "dan-api/dummy/brand";
 import { PapperBlock } from "dan-components";
+import AdvancedTable from "../../Tables/demos/AdvFilter";
+import CurrencyWidget from "../../../components/MemberComponents/Components/CurrencyWidget";
 
 function StaffDashboard() {
   const title = brand.name + " - Blank Page";
@@ -16,8 +18,14 @@ function StaffDashboard() {
         <meta property="twitter:title" content={title} />
         <meta property="twitter:description" content={description} />
       </Helmet>
-      <PapperBlock title="Blank Page" desc="Some text description">
-        Content
+      <PapperBlock title="TGC House Account">
+        <CurrencyWidget />
+      </PapperBlock>
+      <PapperBlock title="System-wide Balances">
+        <CurrencyWidget />
+      </PapperBlock>
+      <PapperBlock title="Real Time Transcation" desc="">
+        <AdvancedTable />
       </PapperBlock>
     </div>
   );
