@@ -19,9 +19,10 @@ import Constants from "../../constants/contants";
 import UserMenu from "../Header/UserMenu";
 import { useHistory } from "react-router-dom";
 
-const dashboardType = "MERCHANT"; // 'MEMBER' // 'STAFF' // 'ADMIN' //
+const dashboardType = 'MERCHANT' // 'MEMBER' // 'STAFF' // 'ADMIN' //
 
 let counter = 0;
+
 function createData(name, url) {
   counter += 1;
   return {
@@ -31,21 +32,42 @@ function createData(name, url) {
   };
 }
 
-function StaffHeaderMenu(props) {
+const HeaderMenu =(props)=> {
   const history = useHistory();
   const { classes, turnDarker } = props;
   const [open, setOpen] = useState(false);
 
   const reducer = "ui";
   const gradient = useSelector((state) => state.getIn([reducer, "gradient"]));
-  const menuList = [
-    createData("Home", "#feature"),
-    createData("Send Money", "#showcase"),
-    // createData("Contact", "#testimonials"),
-    createData("Shop", "#tech"),
-    createData("Buy Gold", "#contact"),
-    createData("Chat", "#contact"),
+  
+
+  const landingMenuList = [
+
   ];
+
+  const memberMenuList = [
+    createData("Home", "/app/member-dashboard"),
+    createData("Send Money", "/app/member/send-money"),
+    createData("Shop", "/app/tgc-marketplace"),
+    createData("Buy Gold", "/app/member/buy-gold"),
+  ];
+
+  const staffDashboard = [
+    createData("Home", "/app/member-dashboard"),
+    createData("Transctions", "/app/member/send-money"),
+    createData("Members", "/app/tgc-marketplace"),
+    createData("Groups", "/app/member/buy-gold"),
+    createData("Gold", "/app/member/buy-gold"),
+  ];
+
+  const adminDashboard = [
+    createData("Home", "/app/member-dashboard"),
+    createData("Transctions", "/app/member/send-money"),
+    createData("Members", "/app/tgc-marketplace"),
+    createData("Groups", "/app/member/buy-gold"),
+    createData("Gold", "/app/member/buy-gold"),
+    createData("Super User", "/app/member/buy-gold"),
+  ]
 
   const toggleDrawerOpen = () => {
     setOpen(true);
@@ -54,23 +76,14 @@ function StaffHeaderMenu(props) {
   const toggleDrawerClose = () => {
     setOpen(false);
   };
+  
+  const menuList = 
+  dashboardType == "MERCHANT" ? memberMenuList : 
+  dashboardType == "STAFF" ? staffDashboard : 
+  dashboardType == "ADMIN" ? adminDashboard : 
+  landingMenuList ;
 
-  const handleHome = () => {
-    history.push("/app/member-dashboard");
-  };
-
-  const handleShop = () => {
-    history.push("/app/tgc-marketplace");
-  };
-
-  const handleBuyGold = () => {
-    history.push("/app/member/buy-gold");
-  };
-
-  const handleSendMoney = () => {
-    history.push("/app/member/send-money");
-  };
-
+  console.log(menuList, "menuList")
   return (
     <>
       <Hidden lgUp>
@@ -80,7 +93,10 @@ function StaffHeaderMenu(props) {
           open={open}
           anchor="left"
         >
-          <SideNavMobile menuList={menuList} closeDrawer={toggleDrawerClose} />
+          <SideNavMobile
+            menuList={menuList}
+            closeDrawer={toggleDrawerClose}
+          />
         </SwipeableDrawer>
       </Hidden>
       <AppBar
@@ -107,34 +123,15 @@ function StaffHeaderMenu(props) {
             </NavLink>
             <Hidden mdDown>
               <nav>
-                <li>
-                  <Button onClick={handleHome} style={{ marginTop: 10 }}>
-                    Home
-                  </Button>
-                </li>
-                <li>
-                  <Button onClick={handleSendMoney} style={{ marginTop: 10 }}>
-                    Send Money
-                  </Button>
-                </li>
-                <li>
-                  <Button onClick={handleShop} style={{ marginTop: 10 }}>
-                    Shop
-                  </Button>
-                </li>
-                <li>
-                  <Button onClick={handleBuyGold} style={{ marginTop: 10 }}>
-                    Buy Gold
-                  </Button>
-                </li>
-                <li>
-                  <Button
-                    onClick={() => alert("Chat Soon")}
-                    style={{ marginTop: 10 }}
-                  >
-                    Chat
-                  </Button>
-                </li>
+                {menuList.map((item) => {
+                  return (
+                    <li key={item.id.toString()}>
+                      <Button onClick={()=>history.push(item.url)} style={{ marginTop: 10 }}>
+                        {item.name}
+                      </Button>
+                    </li>
+                  )
+                })}
               </nav>
               <UserMenu />
             </Hidden>
@@ -145,9 +142,9 @@ function StaffHeaderMenu(props) {
   );
 }
 
-StaffHeaderMenu.propTypes = {
+HeaderMenu.propTypes = {
   classes: PropTypes.object.isRequired,
   turnDarker: PropTypes.bool.isRequired,
 };
 
-export default withStyles(styles)(StaffHeaderMenu);
+export default withStyles(styles)(HeaderMenu);

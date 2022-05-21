@@ -29,7 +29,7 @@ const styles = theme => ({
   Checkout full documentation here :
   https://github.com/gregnb/mui-datatables/blob/master/README.md
 */
-function AdvFilter(props) {
+const AdvFilter = (props) => {
   const columns = [
     {
       name: 'Date',
@@ -131,12 +131,11 @@ function AdvFilter(props) {
   };
 
   const { classes, title } = props;
-
   return (
     <div className={classes.table}>
       <MUIDataTable
         title={title}
-        data={data}
+        data={props.data}
         columns={columns}
         options={options}
       />

@@ -8,7 +8,7 @@ import { Header, Sidebar, BreadCrumb } from "dan-components";
 import dataMenu from "dan-api/ui/menu";
 import Decoration from "../Decoration";
 import styles from "../appStyles-jss";
-import HeaderMenu from "../../../components/HeaderMenu/MemberHeaderMenu";
+import HeaderMenu from "../../../components/HeaderMenu";
 function AppLayout(props) {
   const {
     classes,
